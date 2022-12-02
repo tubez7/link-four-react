@@ -8,7 +8,7 @@ If I get a working, functional, and nice looking browser based connect 4 style g
  
 ## Other projects
 
-Please see https://github.com/tubez7 to see other projects I have worked on or check out some apps I have built in the past:
+Please see https://github.com/tubez7 to see other projects I have worked on, or check out some apps I have built in the past at the links below:
 
 NC NEWS: https://richard-nc-news.netlify.app \
 NC NEWS API: https://nc-news-api.cyclic.app/api \
