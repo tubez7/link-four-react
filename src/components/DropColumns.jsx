@@ -1,4 +1,4 @@
-export default function DropColumn({ col, i, setBoard, game }) {
+export default function DropColumns({ col, i, setBoard, game }) {
   return (
     <div className="Drop-column">
       index {i}, col {`${col}`}

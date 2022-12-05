@@ -8,6 +8,11 @@
   margin: auto;
 }
 
+/* .game-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+} */
+
 .Drop-columns {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
