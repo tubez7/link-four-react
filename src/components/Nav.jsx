@@ -1,7 +1,11 @@
-export default function Nav() {
+export default function Nav({ visible, setVisible }) {
+  const newGameForm = () => {
+    setVisible(true);
+  };
+
   return (
     <nav className="Nav-bar">
-      <button>New Game</button>
+      <button onClick={newGameForm} disabled={visible}>New Game</button>
       <button>About/Info</button>
     </nav>
   );
