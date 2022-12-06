@@ -36,6 +36,10 @@ class LinkFour {
     }
   }
 
+  updateBoard(board) {
+    this.board = board;
+  }
+
   play(column) {
     if (this.winner) {
       if (this.player) {
