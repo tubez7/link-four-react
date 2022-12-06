@@ -8,12 +8,12 @@ export default function NewGameForm({ setVisible, game, setGame }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setGame(new LinkFour(player1, player2));
-    setVisible(false);
+    setVisible(true);
   };
 
   const closeForm = (e) => {
     e.preventDefault();
-    setVisible(false);
+    setVisible(true);
   };
 
   const assignPlayer1 = (e) => {

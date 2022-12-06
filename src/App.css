@@ -2,27 +2,40 @@
   text-align: center;
 }
 
-.Nav-bar {
+.nav-bar {
   display: inline-flex;
   align-content: space-between;
   margin: auto;
 }
 
-/* .game-board {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-} */
-
-.Drop-columns {
+.drop-columns {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
-.Drop-column:hover {
+.drop-column:hover {
   color: rgb(253, 3, 3);
 }
 
-.Board-rows {
+/* .game-board {
+  border-style: solid;
+  border-bottom: none;
+} */
+
+.board-rows {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+}
+
+.board-space {
+  border-style: solid;
+}
+
+/* .game-info {
+  border-style: solid;
+  border-top: none;
+} */
+
+.info-list {
+  border-style: solid;
 }
