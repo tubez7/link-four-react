@@ -22,9 +22,17 @@ class LinkFour {
 
   getPlayer() {
     if (this.player) {
-      return `It is ${this.player1}'s (x) turn`;
+      if (this.player1.slice(-1) === "s") {
+        return `It is ${this.player1}' (x) turn`;
+      } else {
+        return `It is ${this.player1}'s (x) turn`;
+      }
     } else {
-      return `It is ${this.player2}'s (o) turn`;
+      if (this.player2.slice(-1) === "s") {
+        return `It is ${this.player2}' (o) turn`;
+      } else {
+        return `It is ${this.player2}'s (x) turn`;
+      }
     }
   }
 

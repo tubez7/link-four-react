@@ -10,8 +10,8 @@ export default function Main({ visible, setVisible }) {
   
   return (
     <>
-      {visible && <NewGameForm setVisible={setVisible} game={game} setGame={setGame} />}
-      {!visible && <GameBoard game={game} />}
+      {!visible && <NewGameForm setVisible={setVisible} game={game} setGame={setGame} />}
+      {visible && <GameBoard game={game} />}
     </>
   );
 }

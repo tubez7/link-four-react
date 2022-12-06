@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Board from "./Board";
 import DropColumns from "./DropColumns";
+import GameInfoToggle from "./GameInfoToggle";
+import InfoList from "./InfoList";
 
 export default function GameBoard({ game }) {
   const [board, setBoard] = useState(game.getBoard());
@@ -10,12 +12,12 @@ export default function GameBoard({ game }) {
 
   return (
     <div className="game-board">
-      <div className="Drop-columns">
+      <div className="drop-columns">
         {dropRow.map((col, i) => {
           return (
             <DropColumns
               key={`${col}`}
-              className={`Column-${col}`}
+              className={`column-${col}`}
               col={col}
               i={i}
               setBoard={setBoard}
@@ -24,7 +26,10 @@ export default function GameBoard({ game }) {
           );
         })}
       </div>
-      <Board board={board} />
+      <Board board={board} game={game} />
+      <GameInfoToggle>
+        <InfoList game={game} />
+      </GameInfoToggle>
     </div>
   );
 }
