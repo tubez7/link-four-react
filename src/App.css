@@ -29,6 +29,7 @@
 
 .board-space {
   border-style: solid;
+  border-top: none;
 }
 
 /* .game-info {
