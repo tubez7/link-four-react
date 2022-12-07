@@ -1,13 +1,12 @@
-import { useState } from "react";
-import LinkFour from "../utils/linkFour";
+import { useContext } from "react";
+import { PlayerContext } from "../contexts/Player";
 
-export default function NewGameForm({ setVisible, game, setGame }) {
-  const [player1, setPlayer1] = useState(game.player1);
-  const [player2, setPlayer2] = useState(game.player2);
+export default function NewGameForm({ setVisible }) {
+  const { player1, setPlayer1, player2, setPlayer2 } =
+    useContext(PlayerContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setGame(new LinkFour(player1, player2));
     setVisible(true);
   };
 
@@ -24,24 +23,31 @@ export default function NewGameForm({ setVisible, game, setGame }) {
     setPlayer2(e.target.value);
   };
 
+  const handleReset = (e) => {
+    e.preventDefault();
+    setPlayer1("Player 1");
+    setPlayer2("Player 2");
+  }
+
   return (
     <form className="new-game-form">
       <fieldset>
-        <label for="player1">Player 1: </label>
+        <label htmlFor="player1">Player 1: </label>
         <input
           type="text"
           id="player1"
-          placeholder={game.player1}
+          placeholder={player1}
           onChange={assignPlayer1}
         ></input>
-        <label for="player2">Player 2: </label>
+        <label htmlFor="player2">Player 2: </label>
         <input
           type="text"
           id="player2"
-          placeholder={game.player2}
+          placeholder={player2}
           onChange={assignPlayer2}
         ></input>
         <button onClick={handleSubmit}>Start New Game</button>
+        <button onClick={{handleReset}}>Reset</button>
         <button onClick={closeForm}>Close</button>
       </fieldset>
     </form>

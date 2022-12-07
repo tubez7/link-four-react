@@ -1,4 +1,8 @@
-export default function Board({ board, game }) {
+import { useContext } from "react";
+import { BoardContext } from "../contexts/Board";
+
+export default function Board() {
+  const { board } = useContext(BoardContext);
   return (
     <div className="board-rows">
       {board.map((row, rowIndex) => {
@@ -11,7 +15,6 @@ export default function Board({ board, game }) {
           );
         });
       })}
-      
     </div>
   );
 }

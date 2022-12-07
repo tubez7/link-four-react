@@ -1,13 +1,9 @@
-import { useState } from "react";
-
 import Board from "./Board";
 import DropColumns from "./DropColumns";
 import GameInfoToggle from "./GameInfoToggle";
 import InfoList from "./InfoList";
 
-export default function GameBoard({ game }) {
-  const [board, setBoard] = useState(game.getBoard());
-
+export default function GameBoard({ visible }) {
   const dropRow = [1, 2, 3, 4, 5, 6, 7];
 
   return (
@@ -20,15 +16,14 @@ export default function GameBoard({ game }) {
               className={`column-${col}`}
               col={col}
               i={i}
-              setBoard={setBoard}
-              game={game}
+              visible={visible}
             />
           );
         })}
       </div>
-      <Board board={board} game={game} />
+      <Board />
       <GameInfoToggle>
-        <InfoList game={game} />
+        <InfoList />
       </GameInfoToggle>
     </div>
   );
