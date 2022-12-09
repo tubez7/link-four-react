@@ -1,16 +1,22 @@
 import { useNavigate } from "react-router-dom";
 
 export default function Nav({
-  visible,
-  setVisible,
+  newGameVisible,
+  setNewGameVisible,
   aboutClicked,
   setAboutClicked,
+  setShowWinner,
+  winner,
+  setDraw,
 }) {
-  const newGameForm = () => {
-    setVisible(false);
-  };
-
   const navigate = useNavigate();
+
+  const newGameForm = (e) => {
+    e.preventDefault();
+    setNewGameVisible(true);
+    setShowWinner(false);
+    setDraw(false);
+  };
 
   const handleAboutClicked = (e) => {
     e.preventDefault();
@@ -28,8 +34,8 @@ export default function Nav({
     <nav className="nav-bar">
       {!aboutClicked && (
         <>
-          <button onClick={newGameForm} disabled={!visible}>
-            New Game
+          <button onClick={newGameForm} disabled={newGameVisible}>
+            {winner ? "New Game" : "Game Settings"}
           </button>
           <button onClick={handleAboutClicked}>About/Info</button>
         </>

@@ -1,15 +1,38 @@
 import cloneDeep from "lodash/cloneDeep";
+
+import findWinner from "../utils/findWinner";
+
 import { useContext } from "react";
 import { BoardContext } from "../contexts/Board";
 import { CurrentPlayerContext } from "../contexts/CurrentPlayer";
 
-export default function DropColumns({ col, i, visible }) {
+export default function DropColumns({
+  col,
+  i,
+  newGameVisible,
+  setColumnFull,
+  setWinner,
+  winner,
+  setShowWinner,
+  setPlayer1Score,
+  setPlayer2Score,
+  setGameStart,
+  setGameCount,
+  setTurnCount,
+  turnCount,
+  setDraw,
+}) {
   const { currentPlayer, setCurrentPlayer } = useContext(CurrentPlayerContext);
 
   const { board, setBoard } = useContext(BoardContext);
 
-  const handleClick = () => {
-    if (!board[0][i] && visible) {
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (board[0][i] && !winner) {
+      setColumnFull(true);
+    } else if (!board[0][i] && !newGameVisible && !winner) {
+      setGameStart(true);
+      setTurnCount((currTurnCount) => currTurnCount + 1);
       const player = currentPlayer === 1 ? "x" : "o";
       let row = 5;
       let counterInPlay = true;
@@ -20,16 +43,32 @@ export default function DropColumns({ col, i, visible }) {
           clonedBoard[row][i] = player;
           counterInPlay = false;
           setBoard(clonedBoard);
+          const gameWinner = findWinner(clonedBoard);
+
+          if (gameWinner) {
+            setWinner(true);
+            setShowWinner(true);
+            currentPlayer === 1
+              ? setPlayer1Score((currP1Score) => currP1Score + 1)
+              : setPlayer2Score((currP2Score) => currP2Score + 1);
+            setGameCount((currGameCount) => currGameCount + 1);
+            setGameStart(false);
+          } else if (turnCount === 41) {
+            setWinner(true);
+            setDraw(true);
+            setGameStart(false);
+          } else {
+            setCurrentPlayer((currentSetPlayer) => {
+              return currentSetPlayer === 1 ? 2 : 1;
+            });
+          }
         }
         row--;
       }
-      setCurrentPlayer((currentSetPlayer) => {
-        return currentSetPlayer === 1 ? 2 : 1;
-      });
     }
   };
   return (
-    <div className="drop-column" onClick={handleClick}>
+    <div className={`drop-column-${currentPlayer}`} onClick={handleClick}>
       index {i}, col {`${col}`}
     </div>
   );
