@@ -8,13 +8,24 @@
   margin: auto;
 }
 
+.new-game-form {
+  background-color: aquamarine;
+}
+
 .drop-columns {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
-.drop-column:hover {
+.drop-column-1:hover {
   color: rgb(253, 3, 3);
+  /* cursor:url(testCursor2.png); */
+  cursor: pointer;
+}
+
+.drop-column-2:hover {
+  color: rgb(6, 205, 53);
+  cursor: pointer;
 }
 
 /* .game-board {
@@ -22,12 +33,21 @@
   border-bottom: none;
 } */
 
+.column-full-popup {
+  border-style: solid;
+}
+
+.winner-popup {
+  border-style: solid;
+}
+
 .board-rows {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
 .board-space {
+  background-color: darksalmon;
   border-style: solid;
   border-top: none;
 }
@@ -39,4 +59,29 @@
 
 .info-list {
   border-style: solid;
+}
+
+.p1-info {
+  color: rgb(253, 3, 3);
+}
+
+.p2-info {
+  color: rgb(6, 205, 53);
+}
+
+.p1-score {
+  color: rgb(253, 3, 3);
+}
+
+.p2-score {
+  color: rgb(6, 205, 53);
+}
+
+
+.p1-turn {
+  color: rgb(253, 3, 3);
+}
+
+.p2-turn {
+  color: rgb(6, 205, 53);
 }
