@@ -6,7 +6,7 @@ export default function Nav({
   aboutClicked,
   setAboutClicked,
   setShowWinner,
-  winner,
+  gameFinish,
   setDraw,
 }) {
   const navigate = useNavigate();
@@ -35,9 +35,9 @@ export default function Nav({
       {!aboutClicked && (
         <>
           <button onClick={newGameForm} disabled={newGameVisible}>
-            {winner ? "New Game" : "Game Settings"}
+            {gameFinish ? "New Game" : "Config"}
           </button>
-          <button onClick={handleAboutClicked}>About/Info</button>
+          <button onClick={handleAboutClicked}>App Info</button>
         </>
       )}
       {aboutClicked && (

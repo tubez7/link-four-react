@@ -1,26 +1,85 @@
 .App {
   text-align: center;
+  background-color: black;
+  color: white;
 }
 
 .nav-bar {
-  display: inline-flex;
-  align-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
   margin: auto;
+  margin-bottom: 1%;
+  z-index: 1;
+}
+
+.game-block {
+  position: relative;
 }
 
 .new-game-form {
   background-color: aquamarine;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 280px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: blueviolet;
+  border-style: solid;
+}
+
+input[type="text"] {
+  background-color: #f2f609;
+  color: rgb(250, 8, 202);
+}
+
+fieldset {
+  border-style: none;
+}
+
+@media screen and (min-width: 560px) {
+  .game-board {
+    max-width: 560px;
+  }
+  .info-list button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .App {
+    width: 100%;
+  }
+  /* .info-list {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+}
+
+@media (orientation: portrait) {
+  .info-list button {
+    display: none;
+  }
+}
+
+.game-board {
+  margin: auto;
+  margin-bottom: 1%;
 }
 
 .drop-columns {
+  color: black;
+  background-color: antiquewhite;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
 .drop-column-1:hover {
   color: rgb(253, 3, 3);
-  /* cursor:url(testCursor2.png); */
-  cursor: pointer;
+  cursor: url(images/28x28.png), pointer;
 }
 
 .drop-column-2:hover {
@@ -28,10 +87,18 @@
   cursor: pointer;
 }
 
-/* .game-board {
+.board-rows {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   border-style: solid;
-  border-bottom: none;
-} */
+  border-color: rgb(57, 3, 253);
+  border-width: 0.2em;
+}
+
+.grid-image {
+  width: 100%;
+  height: 100%;
+}
 
 .column-full-popup {
   border-style: solid;
@@ -41,24 +108,28 @@
   border-style: solid;
 }
 
-.board-rows {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+.game-info {
+  position: relative;
 }
-
-.board-space {
-  background-color: darksalmon;
-  border-style: solid;
-  border-top: none;
-}
-
-/* .game-info {
-  border-style: solid;
-  border-top: none;
-} */
 
 .info-list {
   border-style: solid;
+  background-color: darkblue;
+  min-width: 280px;
+  max-width: 560px;
+  margin: auto;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  z-index: 1;
+  padding-bottom: 1%;
+}
+
+.list-items {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 1%;
+  padding: 0;
 }
 
 .p1-info {
@@ -77,11 +148,44 @@
   color: rgb(6, 205, 53);
 }
 
-
 .p1-turn {
   color: rgb(253, 3, 3);
 }
 
 .p2-turn {
   color: rgb(6, 205, 53);
+}
+
+.column-full-popup {
+  background-color: aqua;
+  color: blueviolet;
+}
+
+.winner-popup {
+  background-color: aqua;
+  color: blueviolet;
+  border-style: solid;
+  padding: 1%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+}
+
+.draw-popup {
+  background-color: aqua;
+  color: blueviolet;
+  border-style: solid;
+  padding: 1%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+}
+
+footer {
+  margin: 1%;
+  margin-bottom: 3%;
 }
