@@ -68,7 +68,7 @@ export default function DropColumns({
     }
   };
   return (
-    <div className={`drop-column-${currentPlayer}`} onClick={handleClick}>
+    <div className={`drop-column-${currentPlayer}`} id="drop-column" onClick={handleClick}>
       {`${col}`}
     </div>
   );

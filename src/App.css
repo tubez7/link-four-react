@@ -6,67 +6,125 @@
 
 .nav-bar {
   display: flex;
-  justify-content: space-between;
-  width: 100px;
+  justify-content: space-around;
+  width: 280px;
   margin: auto;
-  margin-bottom: 1%;
-  z-index: 1;
+  margin-bottom: 2%;
+  
 }
+
+.nav-bar button {
+  min-width: 100px;
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
+  color: blueviolet;
+  margin: 0.25em;
+  font-size: larger;
+  font-weight: bolder;
+  transform: skew(-5deg);
+}
+
+.nav-bar button:disabled {
+  opacity: 0.5;
+}
+
+/* .nav-bar button:active {
+  background-color: rgb(250, 150, 247);
+  box-shadow: 0 2px rgb(186, 180, 186);
+  transform: translateY(4px);
+} */
 
 .game-block {
   position: relative;
 }
 
 .new-game-form {
-  background-color: aquamarine;
+  background-color:rgb(0, 255, 255);
   position: absolute;
+  display:flex;
   top: 50%;
   left: 50%;
   max-width: 280px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) skew(-5deg);
   z-index: 1;
   color: blueviolet;
   border-style: solid;
+  border-width: 0.25em;
+  font-weight: bold;
+}
+
+#player2 {
+  margin-bottom: 0.5em;
+}
+
+.new-game-form button {
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
+  color: blueviolet;
+  margin: 0.25em;
+  font-weight: bolder;
+  box-shadow: 0 5px rgb(207, 198, 207);
+}
+
+.new-game-form button:active {
+  background-color: rgb(250, 150, 247);
+  box-shadow: 0 2px rgb(186, 180, 186);
+  transform: translateY(4px);
+}
+
+.new-game-form button:disabled {
+  opacity: 0.5;
 }
 
 input[type="text"] {
-  background-color: #f2f609;
-  color: rgb(250, 8, 202);
+  background-color: rgb(252, 252, 22);
+  color:blueviolet;
+  font-weight: 545;
+  border-style: solid;
+  border-color: blueviolet;
 }
 
-fieldset {
-  border-style: none;
+::placeholder {
+  color: blueviolet;
+  opacity: 0.8; 
 }
 
+
+/* SETS THE MAX WIDTH OF THE GAME ON LARGER SCREENS */
 @media screen and (min-width: 560px) {
   .game-board {
     max-width: 560px;
   }
-  .info-list button {
-    display: none;
-  }
 }
 
+/* FITS THE ENTIRE WIDTH OF THE APP TO THE WIDTH OF THE SCREEN ON SMALLER DISPLAYS */
 @media screen and (max-width: 560px) {
   .App {
     width: 100%;
   }
-  /* .info-list {
+}
+
+/* DISPLAYS THE INFO POPUP ON TOP OF THE BOARD WHERE SCREEN HEIGHT IS NOT SUFFICIENT TO DISPLAY UNDERNEATH WITHOUT SCROLLING*/
+@media screen and (max-height: 850px) and (min-aspect-ratio: 1/2) {
+  .info-list {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  } */
-}
-
-@media (orientation: portrait) {
-  .info-list button {
-    display: none;
   }
 }
 
-.game-board {
-  margin: auto;
+/* REMOVES THE CLOSE BUTTON ON SCREENS WHERE THE INFO POPUP IS RENDERED UNDERNEATH THE BOARD */
+@media not all and (max-height: 850px) and (min-aspect-ratio: 1/2) {
+  .info-list button {
+    display: none;
+  }  
+}
+
+.game-board { 
+  margin: auto; /* CENTRES THE ENTIRE BOARD*/
   margin-bottom: 1%;
 }
 
@@ -77,13 +135,17 @@ fieldset {
   grid-template-columns: repeat(7, 1fr);
 }
 
+#drop-column {
+  border-style: solid;
+}
+
 .drop-column-1:hover {
-  color: rgb(253, 3, 3);
+  color: rgb(0, 255, 255);
   cursor: url(images/28x28.png), pointer;
 }
 
 .drop-column-2:hover {
-  color: rgb(6, 205, 53);
+  color: rgb(252, 252, 22);
   cursor: pointer;
 }
 
@@ -133,27 +195,31 @@ fieldset {
 }
 
 .p1-info {
-  color: rgb(253, 3, 3);
+  color: rgb(0, 255, 255);
+  font-weight: bolder;
 }
 
 .p2-info {
-  color: rgb(6, 205, 53);
+  color: rgb(252, 252, 22);
+  font-weight: bolder;
 }
 
 .p1-score {
-  color: rgb(253, 3, 3);
+  color: rgb(0, 255, 255);
 }
 
 .p2-score {
-  color: rgb(6, 205, 53);
+  color: rgb(252, 252, 22);
 }
 
 .p1-turn {
-  color: rgb(253, 3, 3);
+  color: rgb(0, 255, 255);
+  font-weight: bolder;
 }
 
 .p2-turn {
-  color: rgb(6, 205, 53);
+  color: rgb(252, 252, 22);
+  font-weight: bolder;
 }
 
 .column-full-popup {
@@ -185,7 +251,17 @@ fieldset {
   width: 280px;
 }
 
+/* GENERIC ELEMENT DEFAULTS */
+
 footer {
   margin: 1%;
   margin-bottom: 3%;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+fieldset {
+  border-style: none; /* REMOVES DEFAULT BORDER OF FIELDSET ELEMENT */
 }

@@ -68,7 +68,6 @@ export default function Main({
           setInfoVisible={setInfoVisible}
         />
       </GameInfoToggle>
-      <footer>Designed and created by RJ Black - 2022</footer>
     </>
   );
 }

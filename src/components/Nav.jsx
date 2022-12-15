@@ -20,7 +20,7 @@ export default function Nav({
 
   const handleAboutClicked = (e) => {
     e.preventDefault();
-    navigate("/about");
+    navigate("/info");
     setAboutClicked(true);
   };
 
@@ -37,7 +37,7 @@ export default function Nav({
           <button onClick={newGameForm} disabled={newGameVisible}>
             {gameFinish ? "New Game" : "Config"}
           </button>
-          <button onClick={handleAboutClicked}>App Info</button>
+          <button onClick={handleAboutClicked}>Info</button>
         </>
       )}
       {aboutClicked && (

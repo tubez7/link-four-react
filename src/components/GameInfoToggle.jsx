@@ -11,7 +11,7 @@ export default function GameInfoToggle({
   return (
     <div className="game-info">
       <button className="info-toggle" onClick={toggleInfoVisible}>
-        {infoVisible ? "Close info" : "Game info"}
+        {infoVisible ? "x" : "Stats"}
       </button>
       {infoVisible && children}
     </div>

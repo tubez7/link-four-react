@@ -9,10 +9,10 @@ import { BoardContext } from "./contexts/Board";
 import { CurrentPlayerContext } from "./contexts/CurrentPlayer";
 import { PlayerContext } from "./contexts/Player";
 
-import About from "./components/About";
 import Header from "./components/Header";
 import Main from "./components/Main.jsx";
 import Nav from "./components/Nav.jsx";
+import Info from "./components/Info";
 
 function App() {
   const [newGameVisible, setNewGameVisible] = useState(true);
@@ -60,8 +60,9 @@ function App() {
                   />
                 }
               />
-              <Route path="/about" element={<About />} />
+              <Route path="/info" element={<Info />} />
             </Routes>
+            <footer>Designed and created by RJ Black - 2022</footer>
           </div>
         </BoardContext.Provider>
       </CurrentPlayerContext.Provider>

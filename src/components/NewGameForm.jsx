@@ -107,13 +107,17 @@ export default function NewGameForm({
           placeholder={player2}
           onChange={assignPlayer2}
         ></input>
+        <br/>
         <button onClick={handleStartGame}>Start New Game</button>
+        <br/>
         <button onClick={handleResetGame} disabled={!gameStart}>
-          Restart Current Game
+          Restart Game
         </button>
-        <button onClick={handleResetScores}>Reset Scores</button>
+        <br/>
+        <button onClick={handleResetScores}>Reset Scores</button>        
         <button onClick={handleReset}>Reset All</button>
-        <button onClick={handleClose}>Close</button>
+        <br/>
+        <button onClick={handleClose}>x</button>
       </fieldset>
     </form>
   );
