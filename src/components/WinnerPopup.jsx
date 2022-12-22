@@ -12,7 +12,7 @@ export default function WinnerPopUp({ setShowWinner, gameCount }) {
     setShowWinner(false);
   };
   return (
-    <div className="winner-popup">
+    <div className={`player${currentPlayer}-winner-popup`}>
       <p>{`Game ${gameCount}: `}{currentPlayer === 1 ? `${player1} wins!` : `${player2} wins!`}</p>
       <button onClick={handleClick}>Close</button>
     </div>

@@ -91,7 +91,7 @@ export default function NewGameForm({
   return (
     <form className="new-game-form">
       <fieldset>
-        <label htmlFor="player1">Player 1: </label>
+        <label htmlFor="player1" id="p1-label">Player 1: </label>
         <input
           type="text"
           id="player1"
@@ -99,7 +99,7 @@ export default function NewGameForm({
           placeholder={player1}
           onChange={assignPlayer1}
         ></input>
-        <label htmlFor="player2">Player 2: </label>
+        <label htmlFor="player2" id="p2-label">Player 2: </label>
         <input
           type="text"
           id="player2"

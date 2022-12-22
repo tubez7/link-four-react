@@ -59,7 +59,7 @@ export default function GameBoard({
         <WinnerPopUp setShowWinner={setShowWinner} gameCount={gameCount} />
       )}
       {draw && <DrawPopUp gameCount={gameCount} setDraw={setDraw} />}
-      <Board />
+      <Board setColumnFull={setColumnFull} />
     </div>
   );
 }

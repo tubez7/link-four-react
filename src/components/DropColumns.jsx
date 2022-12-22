@@ -32,6 +32,7 @@ export default function DropColumns({
       setColumnFull(true);
     } else if (!board[0][i] && !newGameVisible && !gameFinish) {
       setGameStart(true);
+      setColumnFull(false);
       setTurnCount((currTurnCount) => currTurnCount + 1);
       const player = currentPlayer === 1 ? "x" : "o";
       let row = 5;

@@ -4,13 +4,18 @@
   color: white;
 }
 
+@font-face {
+  /*IMPORT CUSTOM LOCAL FONT*/
+  font-family: "DA STREETS";
+  src: local("DA STREETS") format("truetype");
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-around;
   width: 280px;
   margin: auto;
   margin-bottom: 2%;
-  
 }
 
 .nav-bar button {
@@ -29,33 +34,73 @@
   opacity: 0.5;
 }
 
-/* .nav-bar button:active {
-  background-color: rgb(250, 150, 247);
-  box-shadow: 0 2px rgb(186, 180, 186);
-  transform: translateY(4px);
-} */
+/* SETS THE MAX WIDTH OF THE GAME ON LARGER SCREENS */
+@media screen and (min-width: 560px) {
+  .game-board {
+    max-width: 560px;
+  }
+}
+
+/* FITS THE ENTIRE WIDTH OF THE APP TO THE WIDTH OF THE SCREEN ON SMALLER DISPLAYS */
+@media screen and (max-width: 560px) {
+  .App {
+    width: 100%;
+  }
+}
 
 .game-block {
   position: relative;
 }
 
 .new-game-form {
-  background-color:rgb(0, 255, 255);
+  background-color: rgb(74, 2, 145);
   position: absolute;
-  display:flex;
+  display: flex;
   top: 50%;
   left: 50%;
   max-width: 280px;
   transform: translate(-50%, -50%) skew(-5deg);
   z-index: 1;
-  color: blueviolet;
+  border-color: rgb(254, 14, 199);
   border-style: solid;
   border-width: 0.25em;
   font-weight: bold;
 }
 
+#p1-label {
+  color: rgb(0, 255, 255);
+}
+
+#p2-label {
+  color: rgb(254, 249, 1);
+}
+
+#player1 {
+  background-color: rgb(0, 255, 255);
+}
+
 #player2 {
   margin-bottom: 0.5em;
+}
+
+input[type="text"] {
+  background-color: rgb(254, 249, 1);
+  color: rgb(74, 2, 145);
+  font-weight: 545;
+  border-style: solid;
+  border-color: rgb(254, 14, 199);
+}
+
+::placeholder {
+  color: rgb(74, 2, 145);
+  opacity: 0.8;
+}
+
+/* STOPS NEW GAME FORM BREAKING ON SCREENS IN THIS WIDTH RANGE */
+@media screen and (max-width: 555px) and (min-width: 511px) {
+  .new-game-form {
+    width: 500px;
+  }
 }
 
 .new-game-form button {
@@ -78,34 +123,7 @@
   opacity: 0.5;
 }
 
-input[type="text"] {
-  background-color: rgb(252, 252, 22);
-  color:blueviolet;
-  font-weight: 545;
-  border-style: solid;
-  border-color: blueviolet;
-}
-
-::placeholder {
-  color: blueviolet;
-  opacity: 0.8; 
-}
-
-/* SETS THE MAX WIDTH OF THE GAME ON LARGER SCREENS */
-@media screen and (min-width: 560px) {
-  .game-board {
-    max-width: 560px;
-  }
-}
-
-/* FITS THE ENTIRE WIDTH OF THE APP TO THE WIDTH OF THE SCREEN ON SMALLER DISPLAYS */
-@media screen and (max-width: 560px) {
-  .App {
-    width: 100%;
-  }
-}
-
-.game-board { 
+.game-board {
   margin: auto; /* CENTRES THE ENTIRE BOARD*/
   margin-bottom: 1%;
 }
@@ -127,7 +145,7 @@ input[type="text"] {
 }
 
 .drop-column-2:hover {
-  color: rgb(252, 252, 22);
+  color: rgb(254, 249, 1);
   cursor: url(images/28x28yellow.png), pointer;
 }
 
@@ -135,7 +153,7 @@ input[type="text"] {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   border-style: solid;
-  border-color: rgb(57, 3, 253);
+  border-color: rgb(74, 2, 145);
   border-width: 0.2em;
 }
 
@@ -148,17 +166,13 @@ input[type="text"] {
   border-style: solid;
 }
 
-.winner-popup {
-  border-style: solid;
-}
-
 .game-info {
   position: relative;
 }
 
 .info-list {
   border-style: solid;
-  border-color:rgb(243, 41, 236);
+  border-color: rgb(254, 14, 199);
   border-width: 0.25em;
   background-color: rgb(74, 2, 145);
   min-width: 280px;
@@ -197,9 +211,9 @@ input[type="text"] {
   }
 }
 
-/* REMOVES THE CLOSE BUTTON ON SCREENS WHERE THE INFO POPUP IS RENDERED UNDERNEATH THE BOARD */
+/* FORMATS THE INFO POPUP ON DISPLAYS WHERE RENDERED UNDERNEATH THE BOARD */
 @media not all and (max-height: 850px) and (min-aspect-ratio: 1/2) {
-  .info-list {
+  .list-items {
     transform: skew(-5deg);
   }
   .info-list button {
@@ -207,6 +221,13 @@ input[type="text"] {
   }
   .line-break {
     display: none;
+  }
+}
+
+@media screen and (max-width: 281px) {
+  .info-list {
+    max-width: 280px;
+    font-size: small;
   }
 }
 
@@ -224,7 +245,7 @@ input[type="text"] {
 }
 
 .p2-info {
-  color: rgb(252, 252, 22);
+  color: rgb(254, 249, 1);
   font-weight: bolder;
 }
 
@@ -234,7 +255,7 @@ input[type="text"] {
 }
 
 .p2-score {
-  color: rgb(252, 252, 22);
+  color: rgb(254, 249, 1);
   font-weight: bolder;
 }
 
@@ -244,40 +265,158 @@ input[type="text"] {
 }
 
 .p2-turn {
-  color: rgb(252, 252, 22);
+  color: rgb(254, 249, 1);
   font-weight: bolder;
 }
 
-.column-full-popup {
-  background-color: aqua;
+.info-toggle {
+  min-width: 100px;
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
   color: blueviolet;
+  margin: 0.25em;
+  font-size: larger;
+  font-weight: bolder;
+  transform: skew(-5deg);
 }
 
-.winner-popup {
-  background-color: aqua;
+.column-full-popup {
+  border-color: rgb(254, 14, 199);
+  border-width: 0.25em;
+  background-color: rgb(74, 2, 145);
+  border-style: solid;
+  padding: 1%;
+  font-weight: bold;
+}
+
+.column-full-popup p {
+  transform: skew(-5deg);
+}
+
+.column-full-popup button {
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
+  color: blueviolet;
+  margin: 0.25em;
+  font-weight: bolder;
+  box-shadow: 0 5px rgb(207, 198, 207);
+  transform: skew(-5deg);
+}
+
+.column-full-popup button:active {
+  background-color: rgb(250, 150, 247);
+  box-shadow: 0 2px rgb(186, 180, 186);
+  transform: skew(-5deg) translateY(4px);
+}
+
+.player1-winner-popup {
+  background-color: rgb(0, 255, 255);
   color: blueviolet;
   border-style: solid;
   padding: 1%;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) skew(-5deg);
   width: 280px;
+  border-style: solid;
+  border-width: 0.25em;
+  font-weight: bold;
+}
+
+.player1-winner-popup button {
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
+  color: blueviolet;
+  margin: 0.25em;
+  font-weight: bolder;
+  box-shadow: 0 5px rgb(207, 198, 207);
+}
+
+.player1-winner-popup button:active {
+  background-color: rgb(250, 150, 247);
+  box-shadow: 0 2px rgb(186, 180, 186);
+  transform: translateY(4px);
+}
+
+.player2-winner-popup {
+  background-color: rgb(254, 249, 1);
+  color: blueviolet;
+  border-style: solid;
+  padding: 1%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skew(-5deg);
+  width: 280px;
+  border-style: solid;
+  border-width: 0.25em;
+  font-weight: bold;
+}
+
+.player2-winner-popup button {
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
+  color: blueviolet;
+  margin: 0.25em;
+  font-weight: bolder;
+  box-shadow: 0 5px rgb(207, 198, 207);
+}
+
+.player2-winner-popup button:active {
+  background-color: rgb(250, 150, 247);
+  box-shadow: 0 2px rgb(186, 180, 186);
+  transform: translateY(4px);
 }
 
 .draw-popup {
-  background-color: aqua;
-  color: blueviolet;
+  border-color: rgb(254, 14, 199);
+  border-width: 0.25em;
+  background-color: rgb(74, 2, 145);
   border-style: solid;
   padding: 1%;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) skew(-5deg);
   width: 280px;
+  font-weight: bold;
+}
+
+.draw-popup button {
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
+  color: blueviolet;
+  margin: 0.25em;
+  font-weight: bolder;
+  box-shadow: 0 5px rgb(207, 198, 207);
+}
+
+.draw-popup button:active {
+  background-color: rgb(250, 150, 247);
+  box-shadow: 0 2px rgb(186, 180, 186);
+  transform: translateY(4px);
 }
 
 /* GENERIC ELEMENT DEFAULTS */
+
+h1 {
+  font-family: "DA STREETS";
+  font-size: 400%;
+  color: rgb(254, 249, 1);
+  text-shadow: 5px 5px rgb(254, 14, 199);
+  transform: skew(-5deg);
+}
+
+h1:hover {
+  color: rgb(254, 14, 199);
+  text-shadow: 5px 5px rgb(254, 249, 1);
+}
 
 footer {
   margin: 1%;
