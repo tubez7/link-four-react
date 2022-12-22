@@ -1,13 +1,15 @@
 import { useState } from "react";
 
 import GameBoard from "./GameBoard";
+import GameInfoToggle from "./GameInfoToggle";
+import InfoList from "./InfoList";
 import NewGameForm from "./NewGameForm";
 
 export default function Main({
   newGameVisible,
   setNewGameVisible,
-  winner,
-  setWinner,
+  gameFinish,
+  setGameFinish,
   showWinner,
   setShowWinner,
   draw,
@@ -19,41 +21,53 @@ export default function Main({
   const [gameStart, setGameStart] = useState(false);
   const [gameCount, setGameCount] = useState(0);
   const [turnCount, setTurnCount] = useState(0);
+  const [infoVisible, setInfoVisible] = useState(false);
 
   return (
     <>
-      {newGameVisible && (
-        <NewGameForm
-          setNewGameVisible={setNewGameVisible}
-          setWinner={setWinner}
+      <div className="game-block">
+        {newGameVisible && (
+          <NewGameForm
+            setNewGameVisible={setNewGameVisible}
+            setGameFinish={setGameFinish}
+            setPlayer1Score={setPlayer1Score}
+            setPlayer2Score={setPlayer2Score}
+            startingPlayer={startingPlayer}
+            setStartingPlayer={setStartingPlayer}
+            gameStart={gameStart}
+            setGameStart={setGameStart}
+            setGameCount={setGameCount}
+            setTurnCount={setTurnCount}
+          />
+        )}
+        <GameBoard
+          newGameVisible={newGameVisible}
+          gameFinish={gameFinish}
+          setGameFinish={setGameFinish}
+          showWinner={showWinner}
+          setShowWinner={setShowWinner}
           setPlayer1Score={setPlayer1Score}
+          player1Score={player1Score}
           setPlayer2Score={setPlayer2Score}
-          startingPlayer={startingPlayer}
-          setStartingPlayer={setStartingPlayer}
-          gameStart={gameStart}
+          player2Score={player2Score}
           setGameStart={setGameStart}
           setGameCount={setGameCount}
+          gameCount={gameCount}
           setTurnCount={setTurnCount}
+          turnCount={turnCount}
+          draw={draw}
+          setDraw={setDraw}
         />
-      )}
-      <GameBoard
-        newGameVisible={newGameVisible}
-        winner={winner}
-        setWinner={setWinner}
-        showWinner={showWinner}
-        setShowWinner={setShowWinner}
-        setPlayer1Score={setPlayer1Score}
-        player1Score={player1Score}
-        setPlayer2Score={setPlayer2Score}
-        player2Score={player2Score}
-        setGameStart={setGameStart}
-        setGameCount={setGameCount}
-        gameCount={gameCount}
-        setTurnCount={setTurnCount}
-        turnCount={turnCount}
-        draw={draw}
-        setDraw={setDraw}
-      />
+      </div>
+      <GameInfoToggle infoVisible={infoVisible} setInfoVisible={setInfoVisible}>
+        <InfoList
+          player1Score={player1Score}
+          player2Score={player2Score}
+          gameCount={gameCount}
+          turnCount={turnCount}
+          setInfoVisible={setInfoVisible}
+        />
+      </GameInfoToggle>
     </>
   );
 }

@@ -11,8 +11,8 @@ export default function DropColumns({
   i,
   newGameVisible,
   setColumnFull,
-  setWinner,
-  winner,
+  setGameFinish,
+  gameFinish,
   setShowWinner,
   setPlayer1Score,
   setPlayer2Score,
@@ -28,10 +28,11 @@ export default function DropColumns({
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (board[0][i] && !winner) {
+    if (board[0][i] && !gameFinish) {
       setColumnFull(true);
-    } else if (!board[0][i] && !newGameVisible && !winner) {
+    } else if (!board[0][i] && !newGameVisible && !gameFinish) {
       setGameStart(true);
+      setColumnFull(false);
       setTurnCount((currTurnCount) => currTurnCount + 1);
       const player = currentPlayer === 1 ? "x" : "o";
       let row = 5;
@@ -46,7 +47,7 @@ export default function DropColumns({
           const gameWinner = findWinner(clonedBoard);
 
           if (gameWinner) {
-            setWinner(true);
+            setGameFinish(true);
             setShowWinner(true);
             currentPlayer === 1
               ? setPlayer1Score((currP1Score) => currP1Score + 1)
@@ -54,7 +55,7 @@ export default function DropColumns({
             setGameCount((currGameCount) => currGameCount + 1);
             setGameStart(false);
           } else if (turnCount === 41) {
-            setWinner(true);
+            setGameFinish(true);
             setDraw(true);
             setGameStart(false);
           } else {
@@ -68,8 +69,8 @@ export default function DropColumns({
     }
   };
   return (
-    <div className={`drop-column-${currentPlayer}`} onClick={handleClick}>
-      index {i}, col {`${col}`}
+    <div className={`drop-column-${currentPlayer}`} id="drop-column" onClick={handleClick}>
+      {`${col}`}
     </div>
   );
 }

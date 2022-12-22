@@ -1,8 +1,8 @@
-import { useState } from "react";
-
-export default function GameInfoToggle({ children }) {
-  const [infoVisible, setInfoVisible] = useState(false);
-
+export default function GameInfoToggle({
+  children,
+  infoVisible,
+  setInfoVisible,
+}) {
   const toggleInfoVisible = (e) => {
     e.preventDefault();
     setInfoVisible((currentStatsVisible) => !currentStatsVisible);
@@ -11,7 +11,7 @@ export default function GameInfoToggle({ children }) {
   return (
     <div className="game-info">
       <button className="info-toggle" onClick={toggleInfoVisible}>
-        {infoVisible ? "Close" : "Game info"}
+        {infoVisible ? "x" : "Stats"}
       </button>
       {infoVisible && children}
     </div>

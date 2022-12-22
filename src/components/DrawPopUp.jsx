@@ -6,7 +6,7 @@ export default function DrawPopUp({ gameCount, setDraw }) {
   return (
     <div className="draw-popup">
       <p>{`Game ${gameCount}: Draw!`}</p>
-      <button onClick={handleClick}>Close</button>
+      <button onClick={handleClick}>x</button>
     </div>
   );
 }

@@ -5,8 +5,8 @@ export default function ColumnFull({ setColumnFull }) {
   };
   return (
     <div className="column-full-popup">
-      This column is full! Please choose a different one.{" "}
-      <button onClick={handleClose}>Close</button>
+      <p>This column is full! Please choose a different one.</p>
+      <button onClick={handleClose}>x</button>
     </div>
   );
 }

@@ -9,10 +9,10 @@ import { BoardContext } from "./contexts/Board";
 import { CurrentPlayerContext } from "./contexts/CurrentPlayer";
 import { PlayerContext } from "./contexts/Player";
 
-import About from "./components/About";
 import Header from "./components/Header";
 import Main from "./components/Main.jsx";
 import Nav from "./components/Nav.jsx";
+import Info from "./components/Info";
 
 function App() {
   const [newGameVisible, setNewGameVisible] = useState(true);
@@ -21,7 +21,7 @@ function App() {
   const [player2, setPlayer2] = useState("Player 2");
   const [currentPlayer, setCurrentPlayer] = useState(1);
   const [board, setBoard] = useState(startBoard);
-  const [winner, setWinner] = useState(false);
+  const [gameFinish, setGameFinish] = useState(false);
   const [showWinner, setShowWinner] = useState(false);
   const [draw, setDraw] = useState(false);
 
@@ -41,7 +41,7 @@ function App() {
               aboutClicked={aboutClicked}
               setAboutClicked={setAboutClicked}
               setShowWinner={setShowWinner}
-              winner={winner}
+              gameFinish={gameFinish}
               setDraw={setDraw}
             />
             <Routes>
@@ -51,8 +51,8 @@ function App() {
                   <Main
                     newGameVisible={newGameVisible}
                     setNewGameVisible={setNewGameVisible}
-                    winner={winner}
-                    setWinner={setWinner}
+                    gameFinish={gameFinish}
+                    setGameFinish={setGameFinish}
                     setShowWinner={setShowWinner}
                     showWinner={showWinner}
                     draw={draw}
@@ -60,8 +60,9 @@ function App() {
                   />
                 }
               />
-              <Route path="/about" element={<About />} />
+              <Route path="/info" element={<Info />} />
             </Routes>
+            <footer>Designed and created by RJ Black - 2022</footer>
           </div>
         </BoardContext.Provider>
       </CurrentPlayerContext.Provider>

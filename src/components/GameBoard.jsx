@@ -4,14 +4,12 @@ import Board from "./Board";
 import ColumnFull from "./ColumnFull";
 import DrawPopUp from "./DrawPopUp";
 import DropColumns from "./DropColumns";
-import GameInfoToggle from "./GameInfoToggle";
-import InfoList from "./InfoList";
 import WinnerPopUp from "./WinnerPopup";
 
 export default function GameBoard({
   newGameVisible,
-  winner,
-  setWinner,
+  gameFinish,
+  setGameFinish,
   showWinner,
   setShowWinner,
   setPlayer1Score,
@@ -42,8 +40,8 @@ export default function GameBoard({
               i={i}
               newGameVisible={newGameVisible}
               setColumnFull={setColumnFull}
-              setWinner={setWinner}
-              winner={winner}
+              setGameFinish={setGameFinish}
+              gameFinish={gameFinish}
               setShowWinner={setShowWinner}
               setPlayer1Score={setPlayer1Score}
               setPlayer2Score={setPlayer2Score}
@@ -61,15 +59,7 @@ export default function GameBoard({
         <WinnerPopUp setShowWinner={setShowWinner} gameCount={gameCount} />
       )}
       {draw && <DrawPopUp gameCount={gameCount} setDraw={setDraw} />}
-      <Board />
-      <GameInfoToggle>
-        <InfoList
-          player1Score={player1Score}
-          player2Score={player2Score}
-          gameCount={gameCount}
-          turnCount={turnCount}
-        />
-      </GameInfoToggle>
+      <Board setColumnFull={setColumnFull} />
     </div>
   );
 }
