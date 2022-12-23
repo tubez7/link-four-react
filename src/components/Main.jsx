@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import GameBoard from "./GameBoard";
 import GameStatsToggle from "./GameStatsToggle";
-import StatsList from "./StatsList";
 import NewGameForm from "./NewGameForm";
+import StatsList from "./StatsList";
 
 export default function Main({
   newGameVisible,
@@ -14,13 +14,19 @@ export default function Main({
   setShowWinner,
   draw,
   setDraw,
+  player1Score,
+  setPlayer1Score,
+  player2Score,
+  setPlayer2Score,
+  startingPlayer,
+  setStartingPlayer,
+  gameCount,
+  setGameCount,
+  turnCount,
+  setTurnCount,
+  gameStart,
+  setGameStart,
 }) {
-  const [player1Score, setPlayer1Score] = useState(0);
-  const [player2Score, setPlayer2Score] = useState(0);
-  const [startingPlayer, setStartingPlayer] = useState(1);
-  const [gameStart, setGameStart] = useState(false);
-  const [gameCount, setGameCount] = useState(0);
-  const [turnCount, setTurnCount] = useState(0);
   const [infoVisible, setInfoVisible] = useState(false);
   const [columnFull, setColumnFull] = useState(false);
 
@@ -63,7 +69,10 @@ export default function Main({
           columnFull={columnFull}
         />
       </div>
-      <GameStatsToggle infoVisible={infoVisible} setInfoVisible={setInfoVisible}>
+      <GameStatsToggle
+        infoVisible={infoVisible}
+        setInfoVisible={setInfoVisible}
+      >
         <StatsList
           player1Score={player1Score}
           player2Score={player2Score}

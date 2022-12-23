@@ -20,7 +20,6 @@ export default function DropColumns({
   setPlayer1Score,
   setPlayer2Score,
   setGameStart,
-  setGameCount,
   setTurnCount,
   turnCount,
   setDraw,
@@ -59,12 +58,10 @@ export default function DropColumns({
             currentPlayer === 1
               ? setPlayer1Score((currP1Score) => currP1Score + 1)
               : setPlayer2Score((currP2Score) => currP2Score + 1);
-            setGameCount((currGameCount) => currGameCount + 1);
             setGameStart(false);
           } else if (turnCount === 41) {
             setGameFinish(true);
             setDraw(true);
-            setGameCount((currGameCount) => currGameCount + 1);
             setGameStart(false);
           } else {
             setCurrentPlayer((currentSetPlayer) => {

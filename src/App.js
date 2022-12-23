@@ -10,9 +10,9 @@ import { CurrentPlayerContext } from "./contexts/CurrentPlayer";
 import { PlayerContext } from "./contexts/Player";
 
 import Header from "./components/Header";
+import Info from "./components/Info";
 import Main from "./components/Main.jsx";
 import Nav from "./components/Nav.jsx";
-import Info from "./components/Info";
 
 function App() {
   const [newGameVisible, setNewGameVisible] = useState(true);
@@ -24,6 +24,12 @@ function App() {
   const [gameFinish, setGameFinish] = useState(false);
   const [showWinner, setShowWinner] = useState(false);
   const [draw, setDraw] = useState(false);
+  const [player1Score, setPlayer1Score] = useState(0);
+  const [player2Score, setPlayer2Score] = useState(0);
+  const [startingPlayer, setStartingPlayer] = useState(1);
+  const [gameCount, setGameCount] = useState(0);
+  const [turnCount, setTurnCount] = useState(0);
+  const [gameStart, setGameStart] = useState(false);
 
   return (
     <PlayerContext.Provider
@@ -57,6 +63,18 @@ function App() {
                     showWinner={showWinner}
                     draw={draw}
                     setDraw={setDraw}
+                    player1Score={player1Score}
+                    setPlayer1Score={setPlayer1Score}
+                    player2Score={player2Score}
+                    setPlayer2Score={setPlayer2Score}
+                    startingPlayer={startingPlayer}
+                    setStartingPlayer={setStartingPlayer}
+                    gameCount={gameCount}
+                    setGameCount={setGameCount}
+                    turnCount={turnCount}
+                    setTurnCount={setTurnCount}
+                    gameStart={gameStart}
+                    setGameStart={setGameStart}
                   />
                 }
               />

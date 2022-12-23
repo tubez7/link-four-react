@@ -30,6 +30,7 @@ export default function NewGameForm({
     setBoard(startBoard);
     setGameFinish(false);
     setTurnCount(0);
+    setGameCount((currGameCount) => currGameCount + 1);
     setColumnFull(false);
     setStartingPlayer((currStartingPlayer) => {
       return currStartingPlayer === 1 ? 2 : 1;
