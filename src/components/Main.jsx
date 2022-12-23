@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import GameBoard from "./GameBoard";
-import GameInfoToggle from "./GameInfoToggle";
-import InfoList from "./InfoList";
+import GameStatsToggle from "./GameStatsToggle";
+import StatsList from "./StatsList";
 import NewGameForm from "./NewGameForm";
 
 export default function Main({
@@ -22,6 +22,7 @@ export default function Main({
   const [gameCount, setGameCount] = useState(0);
   const [turnCount, setTurnCount] = useState(0);
   const [infoVisible, setInfoVisible] = useState(false);
+  const [columnFull, setColumnFull] = useState(false);
 
   return (
     <>
@@ -38,6 +39,7 @@ export default function Main({
             setGameStart={setGameStart}
             setGameCount={setGameCount}
             setTurnCount={setTurnCount}
+            setColumnFull={setColumnFull}
           />
         )}
         <GameBoard
@@ -57,17 +59,19 @@ export default function Main({
           turnCount={turnCount}
           draw={draw}
           setDraw={setDraw}
+          setColumnFull={setColumnFull}
+          columnFull={columnFull}
         />
       </div>
-      <GameInfoToggle infoVisible={infoVisible} setInfoVisible={setInfoVisible}>
-        <InfoList
+      <GameStatsToggle infoVisible={infoVisible} setInfoVisible={setInfoVisible}>
+        <StatsList
           player1Score={player1Score}
           player2Score={player2Score}
           gameCount={gameCount}
           turnCount={turnCount}
           setInfoVisible={setInfoVisible}
         />
-      </GameInfoToggle>
+      </GameStatsToggle>
     </>
   );
 }

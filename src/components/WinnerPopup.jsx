@@ -13,8 +13,11 @@ export default function WinnerPopUp({ setShowWinner, gameCount }) {
   };
   return (
     <div className={`player${currentPlayer}-winner-popup`}>
-      <p>{`Game ${gameCount}: `}{currentPlayer === 1 ? `${player1} wins!` : `${player2} wins!`}</p>
-      <button onClick={handleClick}>Close</button>
+      <p>
+        {`Game ${gameCount}: `}
+        {currentPlayer === 1 ? `${player1} wins!` : `${player2} wins!`}
+      </p>
+      <button onClick={handleClick}>x</button>
     </div>
   );
 }

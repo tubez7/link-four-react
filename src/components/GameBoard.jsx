@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Board from "./Board";
 import ColumnFull from "./ColumnFull";
 import DrawPopUp from "./DrawPopUp";
@@ -13,9 +11,7 @@ export default function GameBoard({
   showWinner,
   setShowWinner,
   setPlayer1Score,
-  player1Score,
   setPlayer2Score,
-  player2Score,
   setGameStart,
   setGameCount,
   gameCount,
@@ -23,9 +19,9 @@ export default function GameBoard({
   turnCount,
   draw,
   setDraw,
+  columnFull,
+  setColumnFull,
 }) {
-  const [columnFull, setColumnFull] = useState(false);
-
   const dropRow = [1, 2, 3, 4, 5, 6, 7];
 
   return (

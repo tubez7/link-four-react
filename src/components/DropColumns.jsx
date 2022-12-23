@@ -6,8 +6,11 @@ import { useContext } from "react";
 import { BoardContext } from "../contexts/Board";
 import { CurrentPlayerContext } from "../contexts/CurrentPlayer";
 
+import defaultIcon from "../images/56x56.png";
+import p1Icon from "../images/56x56cyan.png";
+import p2Icon from "../images/56x56yellow.png";
+
 export default function DropColumns({
-  col,
   i,
   newGameVisible,
   setColumnFull,
@@ -25,6 +28,10 @@ export default function DropColumns({
   const { currentPlayer, setCurrentPlayer } = useContext(CurrentPlayerContext);
 
   const { board, setBoard } = useContext(BoardContext);
+
+  const getImage = () => {
+    return currentPlayer === 1 ? p1Icon : p2Icon;
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -57,6 +64,7 @@ export default function DropColumns({
           } else if (turnCount === 41) {
             setGameFinish(true);
             setDraw(true);
+            setGameCount((currGameCount) => currGameCount + 1);
             setGameStart(false);
           } else {
             setCurrentPlayer((currentSetPlayer) => {
@@ -69,8 +77,17 @@ export default function DropColumns({
     }
   };
   return (
-    <div className={`drop-column-${currentPlayer}`} id="drop-column" onClick={handleClick}>
-      {`${col}`}
+    <div
+      className={`drop-column-${currentPlayer}`}
+      id="drop-column"
+      onClick={handleClick}
+    >
+      <div className="column-icon-switch">
+        <img src={defaultIcon} alt="default-icon" className="column-icon" />
+      </div>
+      <div className="column-icon-switch">
+        <img src={getImage()} alt="column-icon" className="column-icon" />
+      </div>
     </div>
   );
 }

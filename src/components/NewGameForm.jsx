@@ -16,6 +16,7 @@ export default function NewGameForm({
   setGameStart,
   setGameCount,
   setTurnCount,
+  setColumnFull,
 }) {
   const { player1, setPlayer1, player2, setPlayer2 } =
     useContext(PlayerContext);
@@ -29,6 +30,7 @@ export default function NewGameForm({
     setBoard(startBoard);
     setGameFinish(false);
     setTurnCount(0);
+    setColumnFull(false);
     setStartingPlayer((currStartingPlayer) => {
       return currStartingPlayer === 1 ? 2 : 1;
     });
@@ -43,6 +45,7 @@ export default function NewGameForm({
     setBoard(startBoard);
     setGameFinish(false);
     setGameStart(false);
+    setColumnFull(false);
     setTurnCount(0);
   };
 
@@ -63,6 +66,7 @@ export default function NewGameForm({
     setCurrentPlayer(1);
     setStartingPlayer(1);
     setGameStart(false);
+    setColumnFull(false);
     setGameCount(0);
     setTurnCount(0);
   };
@@ -91,7 +95,9 @@ export default function NewGameForm({
   return (
     <form className="new-game-form">
       <fieldset>
-        <label htmlFor="player1" id="p1-label">Player 1: </label>
+        <label htmlFor="player1" id="p1-label">
+          Player 1:{" "}
+        </label>
         <input
           type="text"
           id="player1"
@@ -99,7 +105,9 @@ export default function NewGameForm({
           placeholder={player1}
           onChange={assignPlayer1}
         ></input>
-        <label htmlFor="player2" id="p2-label">Player 2: </label>
+        <label htmlFor="player2" id="p2-label">
+          Player 2:{" "}
+        </label>
         <input
           type="text"
           id="player2"
@@ -107,16 +115,16 @@ export default function NewGameForm({
           placeholder={player2}
           onChange={assignPlayer2}
         ></input>
-        <br/>
+        <br />
         <button onClick={handleStartGame}>Start New Game</button>
-        <br/>
+        <br />
         <button onClick={handleResetGame} disabled={!gameStart}>
           Restart Game
         </button>
-        <br/>
-        <button onClick={handleResetScores}>Reset Scores</button>        
+        <br />
+        <button onClick={handleResetScores}>Reset Scores</button>
         <button onClick={handleReset}>Reset All</button>
-        <br/>
+        <br />
         <button onClick={handleClose}>x</button>
       </fieldset>
     </form>

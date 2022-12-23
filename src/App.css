@@ -20,37 +20,51 @@
 
 .nav-bar button {
   min-width: 100px;
-  background-color: rgb(249, 170, 246);
-  border-color: blueviolet;
+  background-color: rgb(254, 14, 199);
+  border-color: rgb(0, 255, 255);
   border-radius: 8px;
-  color: blueviolet;
+  border-width: 3px;
+  color: rgb(254, 249, 1);
   margin: 0.25em;
   font-size: larger;
   font-weight: bolder;
   transform: skew(-5deg);
 }
 
+.nav-bar button:active {
+  background-color: rgb(254, 249, 1);
+  color: rgb(254, 14, 199);
+  transform: skew(-5deg) translateY(4px);
+}
+
+.nav-bar button:hover {
+  transform: scale(1.1);
+}
+
 .nav-bar button:disabled {
   opacity: 0.5;
 }
 
-/* SETS THE MAX WIDTH OF THE GAME ON LARGER SCREENS */
 @media screen and (min-width: 560px) {
+  /* SETS THE MAX WIDTH OF THE GAME ON LARGER SCREENS */
   .game-board {
     max-width: 560px;
   }
 }
 
-/* FITS THE ENTIRE WIDTH OF THE APP TO THE WIDTH OF THE SCREEN ON SMALLER DISPLAYS */
 @media screen and (max-width: 560px) {
+  /* FITS THE ENTIRE WIDTH OF THE APP TO THE WIDTH OF THE SCREEN ON SMALLER DISPLAYS */
   .App {
     width: 100%;
   }
 }
 
 .game-block {
+  /* SETS THE POSITION OF THE GAME-BLOCK BOX*/
   position: relative;
 }
+
+/* CSS RULES FOR THE NEW GAME FORM*/
 
 .new-game-form {
   background-color: rgb(74, 2, 145);
@@ -93,29 +107,32 @@ input[type="text"] {
 
 ::placeholder {
   color: rgb(74, 2, 145);
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
-/* STOPS NEW GAME FORM BREAKING ON SCREENS IN THIS WIDTH RANGE */
 @media screen and (max-width: 555px) and (min-width: 511px) {
+  /* STOPS NEW GAME FORM BREAKING ON SCREENS IN THIS WIDTH RANGE */
   .new-game-form {
     width: 500px;
   }
 }
 
 .new-game-form button {
-  background-color: rgb(249, 170, 246);
-  border-color: blueviolet;
+  background-color: rgb(254, 14, 199);
+  border-color: rgb(0, 255, 255);
   border-radius: 8px;
-  color: blueviolet;
+  color: rgb(254, 249, 1);
   margin: 0.25em;
   font-weight: bolder;
-  box-shadow: 0 5px rgb(207, 198, 207);
+}
+
+.new-game-form button:hover {
+  transform: scale(1.1);
 }
 
 .new-game-form button:active {
-  background-color: rgb(250, 150, 247);
-  box-shadow: 0 2px rgb(186, 180, 186);
+  background-color: rgb(254, 249, 1);
+  color: rgb(254, 14, 199);
   transform: translateY(4px);
 }
 
@@ -123,30 +140,61 @@ input[type="text"] {
   opacity: 0.5;
 }
 
+/* CSS RULES FOR THE ENTIRE GAME-BOARD BOX*/
+
 .game-board {
   margin: auto; /* CENTRES THE ENTIRE BOARD*/
   margin-bottom: 1%;
 }
 
+/* CSS RULES FOR THE COLUMNS*/
+
 .drop-columns {
-  color: black;
-  background-color: antiquewhite;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-}
-
-#drop-column {
-  border-style: solid;
+  margin-bottom: 1px;
 }
 
 .drop-column-1:hover {
-  color: rgb(0, 255, 255);
+  /* border-style: solid;
+  border-color: rgb(0, 255, 255); */
   cursor: url(images/28x28cyan.png), pointer;
 }
 
 .drop-column-2:hover {
-  color: rgb(254, 249, 1);
+  /* border-style: solid;
+  border-color: rgb(254, 249, 1); */
   cursor: url(images/28x28yellow.png), pointer;
+}
+
+.column-icon {
+  width: 50%;
+  height: 100%;
+}
+
+/* CSS RULES TO SWITCH THE IMAGE TO BE DISPLAYED OVER THE COLUMN WHEN MOUSE HOVERS*/
+.drop-column-1 .column-icon-switch:nth-of-type(2) {
+  display: none;
+}
+
+.drop-column-1:hover .column-icon-switch:nth-of-type(1) {
+  display: none;
+}
+
+.drop-column-1:hover .column-icon-switch:nth-of-type(2) {
+  display: block;
+}
+
+.drop-column-2 .column-icon-switch:nth-of-type(2) {
+  display: none;
+}
+
+.drop-column-2:hover .column-icon-switch:nth-of-type(1) {
+  display: none;
+}
+
+.drop-column-2:hover .column-icon-switch:nth-of-type(2) {
+  display: block;
 }
 
 .board-rows {
@@ -162,15 +210,35 @@ input[type="text"] {
   height: 100%;
 }
 
-.column-full-popup {
-  border-style: solid;
-}
-
-.game-info {
+.game-stats {
+  /* SETS POSITION OF THE INFO PARENT BLOCK*/
   position: relative;
 }
 
-.info-list {
+.game-stats button {
+  min-width: 100px;
+  background-color: rgb(254, 14, 199);
+  border-color: rgb(0, 255, 255);
+  border-radius: 8px;
+  border-width: 3px;
+  color: rgb(254, 249, 1);
+  margin: 0.25em;
+  font-size: larger;
+  font-weight: bolder;
+  transform: skew(-5deg);
+}
+
+.game-stats button:active {
+  background-color: rgb(254, 249, 1);
+  color: rgb(254, 14, 199);
+  transform: skew(-5deg) translateY(4px);
+}
+
+.game-stats button:hover {
+  transform: scale(1.1);
+}
+
+.stats-list {
   border-style: solid;
   border-color: rgb(254, 14, 199);
   border-width: 0.25em;
@@ -184,26 +252,25 @@ input[type="text"] {
   padding-bottom: 1%;
 }
 
-.info-list button {
+.stats-list button {
   width: 50px;
-  background-color: rgb(249, 170, 246);
-  border-color: blueviolet;
+  background-color: rgb(254, 14, 199);
+  border-color: rgb(0, 255, 255);
   border-radius: 8px;
-  color: blueviolet;
+  color: rgb(254, 249, 1);
   margin: 0.25em;
   font-weight: bolder;
-  box-shadow: 0 5px rgb(207, 198, 207);
 }
 
-.info-list button:active {
-  background-color: rgb(250, 150, 247);
-  box-shadow: 0 2px rgb(186, 180, 186);
+.stats-list button:active {
+  background-color: rgb(254, 249, 1);
+  color: rgb(254, 14, 199);
   transform: translateY(4px);
 }
 
-/* DISPLAYS THE INFO POPUP ON TOP OF THE BOARD WHERE SCREEN HEIGHT IS NOT SUFFICIENT TO DISPLAY UNDERNEATH WITHOUT SCROLLING*/
 @media screen and (max-height: 850px) and (min-aspect-ratio: 1/2) {
-  .info-list {
+  /* DISPLAYS THE INFO POPUP ON TOP OF THE BOARD WHERE SCREEN HEIGHT IS NOT SUFFICIENT TO DISPLAY UNDERNEATH WITHOUT SCROLLING*/
+  .stats-list {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -211,12 +278,12 @@ input[type="text"] {
   }
 }
 
-/* FORMATS THE INFO POPUP ON DISPLAYS WHERE RENDERED UNDERNEATH THE BOARD */
 @media not all and (max-height: 850px) and (min-aspect-ratio: 1/2) {
+  /* FORMATS THE INFO POPUP ON DISPLAYS WHERE RENDERED UNDERNEATH THE BOARD */
   .list-items {
     transform: skew(-5deg);
   }
-  .info-list button {
+  .stats-list button {
     display: none;
   }
   .line-break {
@@ -225,7 +292,8 @@ input[type="text"] {
 }
 
 @media screen and (max-width: 281px) {
-  .info-list {
+  /* FORMATS THE INFO POPUP ON VERY NARROW DISPLAYS */
+  .stats-list {
     max-width: 280px;
     font-size: small;
   }
@@ -269,18 +337,6 @@ input[type="text"] {
   font-weight: bolder;
 }
 
-.info-toggle {
-  min-width: 100px;
-  background-color: rgb(249, 170, 246);
-  border-color: blueviolet;
-  border-radius: 8px;
-  color: blueviolet;
-  margin: 0.25em;
-  font-size: larger;
-  font-weight: bolder;
-  transform: skew(-5deg);
-}
-
 .column-full-popup {
   border-color: rgb(254, 14, 199);
   border-width: 0.25em;
@@ -295,20 +351,29 @@ input[type="text"] {
 }
 
 .column-full-popup button {
-  background-color: rgb(249, 170, 246);
-  border-color: blueviolet;
+  background-color: rgb(254, 14, 199);
+  border-color: rgb(0, 255, 255);
   border-radius: 8px;
-  color: blueviolet;
+  color: rgb(254, 249, 1);
   margin: 0.25em;
   font-weight: bolder;
-  box-shadow: 0 5px rgb(207, 198, 207);
   transform: skew(-5deg);
 }
 
+.column-full-popup button:hover {
+  transform: scale(1.1);
+}
+
 .column-full-popup button:active {
-  background-color: rgb(250, 150, 247);
-  box-shadow: 0 2px rgb(186, 180, 186);
-  transform: skew(-5deg) translateY(4px);
+  background-color: rgb(254, 249, 1);
+  color: rgb(254, 14, 199);
+  transform: translateY(4px);
+}
+
+@media screen and (max-width: 380px) {
+  .column-full-popup {
+    font-size: smaller;
+  }
 }
 
 .player1-winner-popup {
@@ -316,7 +381,7 @@ input[type="text"] {
   color: blueviolet;
   border-style: solid;
   padding: 1%;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) skew(-5deg);
@@ -324,6 +389,7 @@ input[type="text"] {
   border-style: solid;
   border-width: 0.25em;
   font-weight: bold;
+  z-index: 1;
 }
 
 .player1-winner-popup button {
@@ -333,12 +399,14 @@ input[type="text"] {
   color: blueviolet;
   margin: 0.25em;
   font-weight: bolder;
-  box-shadow: 0 5px rgb(207, 198, 207);
+}
+
+.player1-winner-popup button:hover {
+  transform: scale(1.1);
 }
 
 .player1-winner-popup button:active {
   background-color: rgb(250, 150, 247);
-  box-shadow: 0 2px rgb(186, 180, 186);
   transform: translateY(4px);
 }
 
@@ -347,7 +415,7 @@ input[type="text"] {
   color: blueviolet;
   border-style: solid;
   padding: 1%;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) skew(-5deg);
@@ -355,6 +423,7 @@ input[type="text"] {
   border-style: solid;
   border-width: 0.25em;
   font-weight: bold;
+  z-index: 1;
 }
 
 .player2-winner-popup button {
@@ -364,12 +433,14 @@ input[type="text"] {
   color: blueviolet;
   margin: 0.25em;
   font-weight: bolder;
-  box-shadow: 0 5px rgb(207, 198, 207);
+}
+
+.player2-winner-popup button:hover {
+  transform: scale(1.1);
 }
 
 .player2-winner-popup button:active {
   background-color: rgb(250, 150, 247);
-  box-shadow: 0 2px rgb(186, 180, 186);
   transform: translateY(4px);
 }
 
@@ -379,7 +450,7 @@ input[type="text"] {
   background-color: rgb(74, 2, 145);
   border-style: solid;
   padding: 1%;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) skew(-5deg);
@@ -388,22 +459,25 @@ input[type="text"] {
 }
 
 .draw-popup button {
-  background-color: rgb(249, 170, 246);
-  border-color: blueviolet;
+  background-color: rgb(254, 14, 199);
+  border-color: rgb(0, 255, 255);
   border-radius: 8px;
-  color: blueviolet;
+  color: rgb(254, 249, 1);
   margin: 0.25em;
   font-weight: bolder;
-  box-shadow: 0 5px rgb(207, 198, 207);
+}
+
+.draw-popup button:hover {
+  transform: scale(1.1);
 }
 
 .draw-popup button:active {
-  background-color: rgb(250, 150, 247);
-  box-shadow: 0 2px rgb(186, 180, 186);
+  background-color: rgb(254, 249, 1);
+  color: rgb(254, 14, 199);
   transform: translateY(4px);
 }
 
-/* GENERIC ELEMENT DEFAULTS */
+/* GENERIC ELEMENT CSS DEFAULTS */
 
 h1 {
   font-family: "DA STREETS";
@@ -428,5 +502,6 @@ button:hover {
 }
 
 fieldset {
-  border-style: none; /* REMOVES DEFAULT BORDER OF FIELDSET ELEMENT */
+  /* REMOVES DEFAULT BORDER OF FIELDSET ELEMENT */
+  border-style: none;
 }
