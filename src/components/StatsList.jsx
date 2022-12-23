@@ -5,7 +5,7 @@ import { PlayerContext } from "../contexts/Player";
 import p1Icon from "../images/28x28cyan.png";
 import p2Icon from "../images/28x28yellow.png";
 
-export default function InfoList({
+export default function StatsList({
   player1Score,
   player2Score,
   gameCount,
@@ -21,10 +21,14 @@ export default function InfoList({
   };
 
   return (
-    <div className="info-list">
+    <div className="stats-list">
       <ul className="list-items">
         <li>
-          <h4>Players<br className="line-break"/><br className="turn-break"/></h4>
+          <h4>
+            Players
+            <br className="line-break" />
+            <br className="turn-break" />
+          </h4>
           <p className="p1-info">{player1}</p>
           <img alt="p1-icon" src={p1Icon} />
           <p className="p2-info">{player2}</p>

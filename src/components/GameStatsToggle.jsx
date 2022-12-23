@@ -1,4 +1,4 @@
-export default function GameInfoToggle({
+export default function GameStatsToggle({
   children,
   infoVisible,
   setInfoVisible,
@@ -9,10 +9,8 @@ export default function GameInfoToggle({
   };
 
   return (
-    <div className="game-info">
-      <button className="info-toggle" onClick={toggleInfoVisible}>
-        {infoVisible ? "x" : "Stats"}
-      </button>
+    <div className="game-stats">
+      <button onClick={toggleInfoVisible}>{infoVisible ? "x" : "Stats"}</button>
       {infoVisible && children}
     </div>
   );
