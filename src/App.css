@@ -478,6 +478,22 @@ input[type="text"] {
   transform: translateY(4px);
 }
 
+/* APP INFO CSS RULES*/
+
+.info-block {
+  background-color: rgb(254, 14, 199);
+  border-style: solid;
+  border-color: rgb(0, 255, 255);
+  border-radius: 8px;
+  border-width: 0.25em;
+  padding: 4px;
+  font-weight: bold;
+  color: rgb(254, 249, 1);
+  max-width: 560px;
+  margin: auto;
+  transform: skew(-5deg);
+}
+
 /* GENERIC ELEMENT CSS DEFAULTS */
 
 h1 {
