@@ -14,7 +14,9 @@
 .nav-bar {
   display: flex;
   justify-content: space-around;
-  width: 280px;
+  /* width: 280px; */
+  /* max-width: 560px; */
+  max-width: 280px;
   margin: auto;
   margin-bottom: 2%;
 }
@@ -480,7 +482,7 @@ input[type="text"] {
 
 /* APP INFO CSS RULES*/
 
-.info-block {
+.info-block section {
   background-color: rgb(254, 14, 199);
   border-style: solid;
   border-color: rgb(0, 255, 255);
@@ -521,4 +523,12 @@ button:hover {
 fieldset {
   /* REMOVES DEFAULT BORDER OF FIELDSET ELEMENT */
   border-style: none;
+}
+
+textarea {
+  background-color: rgb(254, 249, 1);
+  color: rgb(74, 2, 145);
+  font-weight: 545;
+  border-style: solid;
+  border-color: rgb(0, 255, 255);
 }

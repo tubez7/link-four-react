@@ -2,12 +2,11 @@ import { useState } from "react";
 
 import GameBoard from "./GameBoard";
 import GameStatsToggle from "./GameStatsToggle";
+import Nav from "./Nav";
 import NewGameForm from "./NewGameForm";
 import StatsList from "./StatsList";
 
 export default function Main({
-  newGameVisible,
-  setNewGameVisible,
   gameFinish,
   setGameFinish,
   showWinner,
@@ -28,10 +27,21 @@ export default function Main({
   setGameStart,
 }) {
   const [infoVisible, setInfoVisible] = useState(false);
+  const [newGameVisible, setNewGameVisible] = useState(true);
   const [columnFull, setColumnFull] = useState(false);
+  const [gameNav, setGameNav] = useState(true);
 
   return (
     <>
+      <Nav
+        newGameVisible={newGameVisible}
+        setNewGameVisible={setNewGameVisible}
+        gameNav={gameNav}
+        setGameNav={setGameNav}
+        setShowWinner={setShowWinner}
+        gameFinish={gameFinish}
+        setDraw={setDraw}
+      />
       <div className="game-block">
         {newGameVisible && (
           <NewGameForm

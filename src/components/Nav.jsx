@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 export default function Nav({
   newGameVisible,
   setNewGameVisible,
-  aboutClicked,
-  setAboutClicked,
+  gameNav,
+  setGameNav,
   setShowWinner,
   gameFinish,
   setDraw,
+  infoNav,
+  setInfoNav,
 }) {
   const navigate = useNavigate();
 
@@ -21,18 +23,19 @@ export default function Nav({
   const handleAboutClicked = (e) => {
     e.preventDefault();
     navigate("/info");
-    setAboutClicked(true);
+    setGameNav(false);
   };
 
   const handleBackClicked = (e) => {
     e.preventDefault();
     navigate(-1);
-    setAboutClicked(false);
+    setGameNav(true);
+    setInfoNav(false);
   };
 
   return (
     <nav className="nav-bar">
-      {!aboutClicked && (
+      {gameNav && (
         <>
           <button onClick={newGameForm} disabled={newGameVisible}>
             {gameFinish ? "New Game" : "Config"}
@@ -40,8 +43,13 @@ export default function Nav({
           <button onClick={handleAboutClicked}>Info</button>
         </>
       )}
-      {aboutClicked && (
-        <button onClick={handleBackClicked}>Back to game</button>
+      {infoNav && (
+        <>
+          <button onClick={handleBackClicked}>Back to game</button>
+          <button>Developer</button>
+          <button>Contact</button>
+          <button>Links</button>
+        </>
       )}
     </nav>
   );
