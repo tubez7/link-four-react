@@ -42,7 +42,6 @@ export default function GameBoard({
               setPlayer1Score={setPlayer1Score}
               setPlayer2Score={setPlayer2Score}
               setGameStart={setGameStart}
-              setGameCount={setGameCount}
               setTurnCount={setTurnCount}
               turnCount={turnCount}
               setDraw={setDraw}
