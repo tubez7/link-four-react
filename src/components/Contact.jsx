@@ -3,7 +3,7 @@ export default function Contact() {
     <section className="contact-block">
       <h2>Contact</h2>
       <address>
-        <p>email: richardjblack7@gmail.com</p>
+      <p>email: <a href="mailto:richardjblack7@gmail.com">richardjblack7@gmail.com</a></p>
         <form className="email-form">
           <fieldset>
             <label>Send me a msg:</label>

@@ -89,7 +89,7 @@
   }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 735px) {
   /* FITS THE ENTIRE WIDTH OF THE APP TO THE WIDTH OF THE SCREEN ON SMALLER DISPLAYS */
   .App {
     width: 100%;

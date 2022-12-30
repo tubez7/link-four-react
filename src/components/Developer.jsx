@@ -1,11 +1,11 @@
 export default function Developer() {
   return (
     <section className="about-dev">
-      <h2>App/Developer Info</h2>
+      <h2>App & Developer Info</h2>
       <p>
         App developed and designed by Richard Black - 2022.
         <br />
-        https://github.com/<wbr/>tubez7/<wbr/>link-four-react
+        <a href="https://github.com/tubez7/link-four-react" target="_blank" rel="noreferrer noopener external" >github.com/<wbr/>tubez7/<wbr/>link-four-react</a>
         <br />
         <br />
         This app was built with React utilising JavaScript & CSS. Please visit
