@@ -1,22 +1,20 @@
 export default function Developer() {
   return (
     <section className="about-dev">
-      <h2>Meet The Developer</h2>
+      <h2>App/Developer Info</h2>
       <p>
-        Hi! Thanks for stopping by to check out my app! I'm a full stack
-        developer who graduated from the Northcoders full-stack JavaScript
-        bootcamp in April 2022.
+        App developed and designed by Richard Black - 2022.
+        <br />
+        https://github.com/<wbr/>tubez7/<wbr/>link-four-react
         <br />
         <br />
-        This app was built to practise building apps with React as well as
-        building attractive UI/UX designs utilising pure CSS. I've borrowed
-        icons and colour schemes from my own band's branding to give it a
-        unified theme, with the idea being that the icons and colour pallettes
-        can easily be swapped out and re-skinned to suit the branding for other
-        organisations or personal preferences I choose.
+        This app was built with React utilising JavaScript & CSS. Please visit
+        the Portfoilio section to see other projects I have worked on, the Links
+        section to see my socials, or drop me an email or send me a comment from
+        the Contact page!
         <br />
         <br />I hope you enjoy using the app as much as I enjoyed building it
-        and thanks again for stopping by!
+        and thanks for stopping by!
       </p>
     </section>
   );

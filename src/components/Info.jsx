@@ -7,6 +7,10 @@ import Portfolio from "./Portfolio";
 
 export default function Info() {
   const [infoNav, setInfoNav] = useState(true);
+  const [seeDev, setSeeDev] = useState(true);
+  const [seePortfolio, setSeePortfolio] = useState(false);
+  const [seeContact, setSeeContact] = useState(false);
+  const [seeLinks, setSeeLinks] = useState(false);
 
   return (
     <>
@@ -14,11 +18,15 @@ export default function Info() {
       <Nav
         infoNav={infoNav}
         setInfoNav={setInfoNav}
+        setSeeDev={setSeeDev}
+        setSeePortfolio={setSeePortfolio}
+        setSeeContact={setSeeContact}
+        setSeeLinks={setSeeLinks} 
       />
-        <Developer />
-        <Portfolio />
-        <Contact />
-        <Links />
+        {seeDev && <Developer />}
+        {seePortfolio && <Portfolio />}
+        {seeContact && <Contact />}
+        {seeLinks && <Links />}
       </div>
     </>
   );
