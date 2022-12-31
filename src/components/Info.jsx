@@ -11,21 +11,36 @@ export default function Info() {
   const [seePortfolio, setSeePortfolio] = useState(false);
   const [seeContact, setSeeContact] = useState(false);
   const [seeLinks, setSeeLinks] = useState(false);
+  const [message, setMessage] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
 
   return (
     <>
       <div className="info-block">
-      <Nav
-        infoNav={infoNav}
-        setInfoNav={setInfoNav}
-        setSeeDev={setSeeDev}
-        setSeePortfolio={setSeePortfolio}
-        setSeeContact={setSeeContact}
-        setSeeLinks={setSeeLinks} 
-      />
+        <Nav
+          infoNav={infoNav}
+          setInfoNav={setInfoNav}
+          setSeeDev={setSeeDev}
+          setSeePortfolio={setSeePortfolio}
+          setSeeContact={setSeeContact}
+          setSeeLinks={setSeeLinks}
+        />
         {seeDev && <Developer />}
         {seePortfolio && <Portfolio />}
-        {seeContact && <Contact />}
+        {seeContact && (
+          <Contact
+            message={message}
+            setMessage={setMessage}
+            firstname={firstname}
+            setFirstName={setFirstName}
+            surname={surname}
+            setSurname={setSurname}
+            email={email} 
+            setEmail={setEmail}
+          />
+        )}
         {seeLinks && <Links />}
       </div>
     </>
