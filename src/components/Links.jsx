@@ -17,7 +17,7 @@ export default function Links() {
       >
         <h3>Shaun Gambowl Walsh & The Plagiarists</h3>
       </a>
-      <p>My band's website. Download our tunes and watch our videos, consume our content, and get the lowdown on our current activities here!</p>
+      <p>My band's website. Download our tunes, watch our videos, consume our content, and get the lowdown on our current activities here!</p>
       <a
         href="https://www.twitch.tv/wewantlesstv"
         target="_blank"
@@ -25,7 +25,7 @@ export default function Links() {
       >
         <h3>We Want Less! on Twitch</h3>
       </a>
-      <p>My band's Twitch channel. Run and maintained by myself</p>
+      <p>My band's Twitch channel. Run and maintained by myself.</p>
       <a
         href="https://www.youtube.com/ShaunGambowlWalshThePlagiarists"
         target="_blank"
@@ -41,7 +41,7 @@ export default function Links() {
       >
         <h3>Waiting For Tubes</h3>
       </a>
-      <p>My personal Twitch channel</p>
+      <p>My personal Twitch channel.</p>
     </section>
   );
 }

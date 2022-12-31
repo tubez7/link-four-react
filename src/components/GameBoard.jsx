@@ -13,7 +13,6 @@ export default function GameBoard({
   setPlayer1Score,
   setPlayer2Score,
   setGameStart,
-  setGameCount,
   gameCount,
   setTurnCount,
   turnCount,
@@ -45,6 +44,7 @@ export default function GameBoard({
               setTurnCount={setTurnCount}
               turnCount={turnCount}
               setDraw={setDraw}
+              gameCount={gameCount}
             />
           );
         })}

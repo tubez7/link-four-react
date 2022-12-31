@@ -23,6 +23,7 @@ export default function DropColumns({
   setTurnCount,
   turnCount,
   setDraw,
+  gameCount,
 }) {
   const { currentPlayer, setCurrentPlayer } = useContext(CurrentPlayerContext);
 
@@ -36,7 +37,7 @@ export default function DropColumns({
     e.preventDefault();
     if (board[0][i] && !gameFinish) {
       setColumnFull(true);
-    } else if (!board[0][i] && !newGameVisible && !gameFinish) {
+    } else if (!board[0][i] && !newGameVisible && !gameFinish && gameCount > 0) {
       setGameStart(true);
       setColumnFull(false);
       setTurnCount((currTurnCount) => currTurnCount + 1);
