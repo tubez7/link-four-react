@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CurrentPlayerContext } from "../contexts/CurrentPlayer";
 import { PlayerContext } from "../contexts/Player";
 
-export default function WinnerPopUp({ setShowWinner, gameCount }) {
+export default function WinnerPopUp ({ setShowWinner, gameCount }) {
   const { currentPlayer } = useContext(CurrentPlayerContext);
   const { player1, player2 } = useContext(PlayerContext);
 

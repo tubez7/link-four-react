@@ -1,22 +1,32 @@
 import emailjs from "@emailjs/browser";
+import TextareaAutosize from "@mui/base/TextareaAutosize";
+
+import { useState } from "react";
+import EmailResponse from "./EmailResponse";
 
 export default function Contact({
   message,
   setMessage,
-  firstname,
+  firstName,
   setFirstName,
   surname,
   setSurname,
   email,
   setEmail,
 }) {
+  const [success, setSuccess] = useState(false);
+  const [fail, setFail] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
+
+  const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
   const templateParams = {
-    firstname,
+    firstName,
     surname,
     email,
     message,
   };
-  
+
   const handleNameChange = (e) => {
     setFirstName(e.target.value);
   };
@@ -27,6 +37,16 @@ export default function Contact({
 
   const handleEMailChange = (e) => {
     setEmail(e.target.value);
+  };
+
+  const validateEmail = (e) => {
+    if (e.target.value.length < 1) {
+      setInvalidEmail(false);
+    } else if (!regex.test(e.target.value)) {
+      setInvalidEmail(true);
+    } else {
+      setInvalidEmail(false);
+    }
   };
 
   const handleMsgChange = (e) => {
@@ -42,17 +62,23 @@ export default function Contact({
         templateParams,
         "s3ArIuTGr2qWNR5hi"
       )
-      .then((res) => {
-        console.log("SUCCESS", res.text);
+      .then(() => {
+        setSuccess(true);
       })
       .catch((err) => {
+        setFail(true);
         console.log("FAILED", err.text);
       });
     setMessage("");
   };
 
   const disabled = () => {
-    if (message.length < 1 || firstname.length < 1 || surname.length < 1) {
+    if (
+      message.length < 1 ||
+      firstName.length < 1 ||
+      surname.length < 1 ||
+      invalidEmail
+    ) {
       return true;
     } else {
       return false;
@@ -67,10 +93,14 @@ export default function Contact({
           email:{" "}
           <a href="mailto:richardjblack7@gmail.com">richardjblack7@gmail.com</a>
         </p>
-        <form className="email-form" id="contact">
+        <form className="contact-form" id="contact">
           <fieldset>
-            <p>Send me a message</p>
-            <label htmlFor="fname">First name</label>
+            <p>
+              Send me a message
+              <br />
+              (* Denotes required field)
+            </p>
+            <label htmlFor="fname">First name*</label>
             <br />
             <input
               type="text"
@@ -80,7 +110,7 @@ export default function Contact({
               onChange={handleNameChange}
             />
             <br />
-            <label htmlFor="sname">Surname</label>
+            <label htmlFor="sname">Surname*</label>
             <br />
             <input
               type="text"
@@ -92,24 +122,33 @@ export default function Contact({
             <br />
             <label htmlFor="mail">{"Email (optional)"}</label>
             <br />
+            {invalidEmail && (
+              <p className="email-verify-alert">
+                Please enter a correctly formatted email address, or leave this
+                field blank
+              </p>
+            )}
             <input
               type="email"
               id="mail"
               name="email"
               placeholder="Your email address..."
+              onBlur={validateEmail}
               onChange={handleEMailChange}
             />
             <br />
-            <label htmlFor="message">Your message</label>
+            <label htmlFor="message">Your message*</label>
             <br />
-            <textarea
+            <TextareaAutosize
+              className="message-box"
               id="message"
               name="contact"
               form="contact"
               placeholder="Your message..."
+              minRows={4}
               onChange={handleMsgChange}
               value={message}
-            ></textarea>
+            />
             <br />
             <button onClick={handleSend} disabled={disabled()}>
               Send
@@ -117,6 +156,14 @@ export default function Contact({
           </fieldset>
         </form>
       </address>
+      {(success || fail) && (
+        <EmailResponse
+          setSuccess={setSuccess}
+          success={success}
+          setFail={setFail}
+          fail={fail}
+        />
+      )}
     </section>
   );
 }

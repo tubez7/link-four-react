@@ -533,40 +533,57 @@ input[type="text"] {
   transform: skew(-5deg);
 }
 
-.email-form {
+.info-block a:link {
+  color: rgb(0, 255, 255);
+}
+
+.info-block a:visited {
+  color: rgb(74, 2, 145);
+}
+
+.contact-block {
+  position: relative;
+}
+
+.contact-form {
   border-style: solid;
   border-color: rgb(0, 255, 255);
   border-width: 0.12em;
   border-radius: 8px;
+  background-color: rgb(74, 2, 145);
   max-width: 280px;
   margin: auto;
-  margin-bottom: 4px;
+  margin-bottom: 20px;
 }
 
-.email-form button {
-  background-color: rgb(254, 249, 1);
+.contact-form label {
+  color: rgb(0, 255, 255);
+}
+
+.contact-form button {
+  background-color: rgb(254, 14, 199);
   border-color: rgb(0, 255, 255);
   border-radius: 8px;
-  color: rgb(254, 14, 199);
+  color: rgb(254, 249, 1);
   margin: 0.25em;
   font-weight: bolder;
 }
 
-.email-form button:hover {
+.contact-form button:hover {
   transform: scale(1.1) skew(-5deg);
 }
 
-.email-form button:active {
-  background-color: rgb(254, 14, 199);
-  color: rgb(254, 249, 1);
+.contact-form button:active {
+  background-color: rgb(254, 249, 1);
+  color: rgb(254, 14, 199);
   transform: translateY(4px) skew(-5deg);
 }
 
-.email-form button:disabled {
+.contact-form button:disabled {
   opacity: 0.5;
 }
 
-.email-form input {
+.contact-form input {
   border-color: rgb(0, 255, 255);
   background-color: rgb(254, 249, 1);
   color: rgb(74, 2, 145);
@@ -574,6 +591,100 @@ input[type="text"] {
   font-weight: 545;
   border-style: solid;
   border-width: 2px;
+  width: 75%;
+}
+
+.email-verify-alert {
+  color: rgb(254, 14, 199);
+  font-size: smaller;
+}
+
+.message-box {
+  background-color: rgb(254, 249, 1);
+  color: rgb(74, 2, 145);
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(0, 255, 255);
+  width: 90%;
+  margin:auto;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  resize: none;
+}
+
+.message-box::placeholder {
+  color: rgb(74, 2, 145);
+  opacity: 0.6;
+}
+
+.contact-success-popup {
+  background-color: rgb(0, 255, 255);
+  color: blueviolet;
+  border-style: solid;
+  padding: 1%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skew(-5deg);
+  width: 280px;
+  border-style: solid;
+  border-width: 0.25em;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.contact-success-popup button {
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
+  color: blueviolet;
+  margin: 0.25em;
+  font-weight: bolder;
+}
+
+.contact-success-popup button:hover {
+  transform: scale(1.1) skew(-5deg);
+}
+
+.contact-success-popup button:active {
+  background-color: rgb(250, 150, 247);
+  transform: translateY(4px) skew(-5deg);
+}
+
+.contact-fail-popup {
+  background-color: rgb(254, 249, 1);
+  color: blueviolet;
+  border-style: solid;
+  padding: 1%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skew(-5deg);
+  width: 280px;
+  border-style: solid;
+  border-width: 0.25em;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.contact-fail-popup button {
+  background-color: rgb(249, 170, 246);
+  border-color: blueviolet;
+  border-radius: 8px;
+  color: blueviolet;
+  margin: 0.25em;
+  font-weight: bolder;
+}
+
+.contact-fail-popup button:hover {
+  transform: scale(1.1) skew(-5deg);
+}
+
+.contact-fail-popup button:active {
+  background-color: rgb(250, 150, 247);
+  transform: translateY(4px) skew(-5deg);
 }
 
 
@@ -604,21 +715,4 @@ button:hover {
 fieldset {
   /* REMOVES DEFAULT BORDER OF FIELDSET ELEMENT */
   border-style: none;
-}
-
-textarea {
-  background-color: rgb(254, 249, 1);
-  color: rgb(74, 2, 145);
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgb(0, 255, 255);
-  font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-}
-
-textarea::placeholder {
-  color: rgb(74, 2, 145);
-  opacity: 0.6;
 }

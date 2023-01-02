@@ -12,7 +12,7 @@ export default function Info() {
   const [seeContact, setSeeContact] = useState(false);
   const [seeLinks, setSeeLinks] = useState(false);
   const [message, setMessage] = useState("");
-  const [firstname, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
 
@@ -33,11 +33,11 @@ export default function Info() {
           <Contact
             message={message}
             setMessage={setMessage}
-            firstname={firstname}
+            firstName={firstName}
             setFirstName={setFirstName}
             surname={surname}
             setSurname={setSurname}
-            email={email} 
+            email={email}
             setEmail={setEmail}
           />
         )}
