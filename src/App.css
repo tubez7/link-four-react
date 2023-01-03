@@ -154,7 +154,7 @@ input[type="text"] {
   opacity: 0.6;
 }
 
-@media screen and (max-width: 555px) and (min-width: 511px) {
+@media screen and (max-width: 589px) and (min-width: 511px) {
   /* STOPS NEW GAME FORM BREAKING ON SCREENS IN THIS WIDTH RANGE */
   .new-game-form {
     width: 500px;
@@ -207,9 +207,11 @@ input[type="text"] {
   cursor: url(images/28x28yellow.png), pointer;
 }
 
-.column-icon {
-  width: 50%;
-  height: 100%;
+@media screen and (max-width: 406px) {
+  .column-icon {
+    width: 50%;
+    height: 100%;
+  }
 }
 
 /* CSS RULES TO SWITCH THE IMAGE TO BE DISPLAYED OVER THE COLUMN WHEN MOUSE HOVERS*/
@@ -283,7 +285,7 @@ input[type="text"] {
   border-color: rgb(254, 14, 199);
   border-width: 0.25em;
   background-color: rgb(74, 2, 145);
-  min-width: 280px;
+  min-width: 248px;
   max-width: 560px;
   margin: auto;
   margin-bottom: 1%;
@@ -316,11 +318,22 @@ input[type="text"] {
     left: 50%;
     transform: translate(-50%, -50%) skew(-5deg);
   }
+  .stats-list img {
+    transform: skew(5deg);
+  }
+  @media screen and (max-width: 670px) {
+    .stats-list {
+      font-size: smaller;
+    }
+  }
 }
 
 @media not all and (max-height: 850px) and (min-aspect-ratio: 1/2) {
   /* FORMATS THE INFO POPUP ON DISPLAYS WHERE RENDERED UNDERNEATH THE BOARD */
-  .list-items {
+  .list-items h4 {
+    transform: skew(-5deg);
+  }
+  .list-items p {
     transform: skew(-5deg);
   }
   .stats-list button {
@@ -329,12 +342,19 @@ input[type="text"] {
   .line-break {
     display: none;
   }
+  
+  @media screen and (max-width: 485px) and (min-width: 454px) {
+    .stats-list {
+      font-size: smaller;
+    }
+  }
 }
 
-@media screen and (max-width: 281px) {
+@media screen and (max-width: 371px) {
   /* FORMATS THE INFO POPUP ON VERY NARROW DISPLAYS */
   .stats-list {
-    max-width: 280px;
+    max-width: 370px;
+
     font-size: small;
   }
 }
@@ -425,7 +445,7 @@ input[type="text"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) skew(-5deg);
-  width: 280px;
+  width: 256px;
   border-style: solid;
   border-width: 0.25em;
   font-weight: bold;
@@ -459,7 +479,7 @@ input[type="text"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) skew(-5deg);
-  width: 280px;
+  width: 256px;
   border-style: solid;
   border-width: 0.25em;
   font-weight: bold;
@@ -549,11 +569,18 @@ input[type="text"] {
   border-style: solid;
   border-color: rgb(0, 255, 255);
   border-width: 0.12em;
+  border-width: 3px;
   border-radius: 8px;
   background-color: rgb(74, 2, 145);
   max-width: 280px;
   margin: auto;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 271px) {
+  .info-block {
+    font-size: smaller;
+  }
 }
 
 .contact-form label {
@@ -606,10 +633,10 @@ input[type="text"] {
   border-width: 2px;
   border-color: rgb(0, 255, 255);
   width: 90%;
-  margin:auto;
+  margin: auto;
   font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   resize: none;
 }
@@ -686,7 +713,6 @@ input[type="text"] {
   background-color: rgb(250, 150, 247);
   transform: translateY(4px) skew(-5deg);
 }
-
 
 /* GENERIC ELEMENT CSS DEFAULTS */
 
