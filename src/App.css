@@ -207,9 +207,11 @@ input[type="text"] {
   cursor: url(images/28x28yellow.png), pointer;
 }
 
-.column-icon {
-  width: 50%;
-  height: 100%;
+@media screen and (max-width: 406px) {
+  .column-icon {
+    width: 50%;
+    height: 100%;
+  }
 }
 
 /* CSS RULES TO SWITCH THE IMAGE TO BE DISPLAYED OVER THE COLUMN WHEN MOUSE HOVERS*/
