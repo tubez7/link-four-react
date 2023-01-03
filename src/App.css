@@ -318,6 +318,11 @@ input[type="text"] {
     left: 50%;
     transform: translate(-50%, -50%) skew(-5deg);
   }
+  @media screen and (max-width: 670px) {
+    .stats-list {
+      font-size: smaller;
+    }
+  }
 }
 
 @media not all and (max-height: 850px) and (min-aspect-ratio: 1/2) {
