@@ -65,9 +65,8 @@ export default function Contact({
       .then(() => {
         setSuccess(true);
       })
-      .catch((err) => {
+      .catch(() => {
         setFail(true);
-        console.log("FAILED", err.text);
       });
     setMessage("");
   };
@@ -100,21 +99,21 @@ export default function Contact({
               <br />
               (* Denotes required field)
             </p>
-            <label htmlFor="fname">First name*</label>
+            <label htmlFor="first-name">First name*</label>
             <br />
             <input
               type="text"
-              id="fname"
-              name="firstname"
+              id="first-name"
+              name="first-name"
               placeholder="Your name..."
               onChange={handleNameChange}
             />
             <br />
-            <label htmlFor="sname">Surname*</label>
+            <label htmlFor="surname">Surname*</label>
             <br />
             <input
               type="text"
-              id="sname"
+              id="surname"
               name="surname"
               placeholder="Your surname..."
               onChange={handleSurnameChange}
