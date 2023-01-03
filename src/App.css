@@ -318,6 +318,9 @@ input[type="text"] {
     left: 50%;
     transform: translate(-50%, -50%) skew(-5deg);
   }
+  .stats-list img {
+    transform: skew(5deg);
+  }
   @media screen and (max-width: 670px) {
     .stats-list {
       font-size: smaller;
@@ -327,7 +330,10 @@ input[type="text"] {
 
 @media not all and (max-height: 850px) and (min-aspect-ratio: 1/2) {
   /* FORMATS THE INFO POPUP ON DISPLAYS WHERE RENDERED UNDERNEATH THE BOARD */
-  .list-items {
+  .list-items h4 {
+    transform: skew(-5deg);
+  }
+  .list-items p {
     transform: skew(-5deg);
   }
   .stats-list button {
@@ -336,12 +342,19 @@ input[type="text"] {
   .line-break {
     display: none;
   }
+  
+  @media screen and (max-width: 485px) and (min-width: 454px) {
+    .stats-list {
+      font-size: smaller;
+    }
+  }
 }
 
-@media screen and (max-width: 281px) {
+@media screen and (max-width: 371px) {
   /* FORMATS THE INFO POPUP ON VERY NARROW DISPLAYS */
   .stats-list {
-    max-width: 280px;
+    max-width: 370px;
+
     font-size: small;
   }
 }
@@ -556,11 +569,18 @@ input[type="text"] {
   border-style: solid;
   border-color: rgb(0, 255, 255);
   border-width: 0.12em;
+  border-width: 3px;
   border-radius: 8px;
   background-color: rgb(74, 2, 145);
   max-width: 280px;
   margin: auto;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 271px) {
+  .info-block {
+    font-size: smaller;
+  }
 }
 
 .contact-form label {
