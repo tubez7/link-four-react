@@ -67,7 +67,6 @@ function App() {
               />
               <Route path="/info" element={<Info />} />
             </Routes>
-            <footer>Designed & created by RJ Black (2022)</footer>
           </div>
         </BoardContext.Provider>
       </CurrentPlayerContext.Provider>
