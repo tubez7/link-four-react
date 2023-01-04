@@ -18,7 +18,7 @@ export default function Contact({
   const [fail, setFail] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
 
-  const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const regex = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
 
   const templateParams = {
     firstName,
