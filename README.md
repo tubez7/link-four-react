@@ -23,7 +23,7 @@ Beyond basic small refinements to the UI/UX, some of the features I hope to rese
 
 
 ## Tech Stack
-The app was bootstrapped with Create React App. I utilised Email.js for the email functionality on the contact form in the Contact section, and made use of Material UI's TextareaAutoSize component to replace the native HTML equivalent. The Lodash's cloneDeep method was also utilised as a helper function.
+The app was bootstrapped with Create React App. I utilised Email.js for the email functionality on the contact form in the Contact section and made use of Material UI's TextareaAutoSize component to replace the native HTML equivalent. The Lodash cloneDeep method was also utilised as a helper function.
 <br>
 <br>
 
