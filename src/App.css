@@ -543,6 +543,10 @@ input[type="text"] {
 
 /* APP INFO CSS RULES*/
 
+.info-block {
+  margin-bottom: 5px;
+}
+
 .info-block section {
   background-color: rgb(254, 14, 199);
   border-style: solid;
