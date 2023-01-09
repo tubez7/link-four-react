@@ -125,6 +125,19 @@
   border-style: solid;
   border-width: 0.25em;
   font-weight: bold;
+  animation-name: drop-skew;
+  animation-duration: 0.5s;
+}
+
+@keyframes drop-skew {
+  0% {
+    transform: translate(-50%, -100%) skew(-5deg);
+    top: 0%;
+  }
+  100% {
+    transform: translate(-50%, -50%) skew(-5deg);
+    top: 50%;
+  }
 }
 
 #p1-label {
@@ -193,6 +206,17 @@ input[type="text"] {
 .game-board {
   margin: auto; /* CENTRES THE ENTIRE BOARD*/
   margin-bottom: 1%;
+  animation-name: transition-right;
+  animation-duration: 0.5s;
+}
+
+@keyframes transition-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* CSS RULES FOR THE COLUMNS*/
@@ -321,6 +345,8 @@ input[type="text"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) skew(-5deg);
+    animation-name: drop-skew;
+    animation-duration: 0.5s;
   }
   .stats-list img {
     transform: skew(5deg);
@@ -454,6 +480,8 @@ input[type="text"] {
   border-width: 0.25em;
   font-weight: bold;
   z-index: 1;
+  animation-name: drop-skew;
+  animation-duration: 0.5s;
 }
 
 .player1-winner-popup button {
@@ -488,6 +516,8 @@ input[type="text"] {
   border-width: 0.25em;
   font-weight: bold;
   z-index: 1;
+  animation-name: drop-skew;
+  animation-duration: 0.5s;
 }
 
 .player2-winner-popup button {
@@ -520,6 +550,8 @@ input[type="text"] {
   transform: translate(-50%, -50%) skew(-5deg);
   width: 280px;
   font-weight: bold;
+  animation-name: drop-skew;
+  animation-duration: 0.5s;
 }
 
 .draw-popup button {
@@ -545,6 +577,7 @@ input[type="text"] {
 
 .info-block {
   margin-bottom: 5px;
+  position: relative;
 }
 
 .info-block section {
@@ -559,6 +592,18 @@ input[type="text"] {
   max-width: 560px;
   margin: auto;
   transform: skew(-5deg);
+  animation-name: transition-left;
+  animation-duration: 0.5s;
+}
+
+
+@keyframes transition-left {
+  0% {
+    transform: translateX(-100%) skew(-5deg);
+  }
+  100% {
+    transform: translateX(0) skew(-5deg);
+  }
 }
 
 .info-block a:link {
@@ -583,6 +628,17 @@ input[type="text"] {
   max-width: 280px;
   margin: auto;
   margin-bottom: 20px;
+  animation-name: lift;
+  animation-duration: 0.5s;
+}
+
+@keyframes lift {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 @media screen and (max-width: 271px) {
@@ -668,6 +724,8 @@ input[type="text"] {
   border-width: 0.25em;
   font-weight: bold;
   z-index: 1;
+  animation-name: drop-skew;
+  animation-duration: 0.5s;
 }
 
 .contact-success-popup button {
@@ -702,6 +760,8 @@ input[type="text"] {
   border-width: 0.25em;
   font-weight: bold;
   z-index: 1;
+  animation-name: drop-skew;
+  animation-duration: 0.5s;
 }
 
 .contact-fail-popup button {
