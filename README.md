@@ -21,6 +21,8 @@ Beyond basic small refinements to the UI/UX, some of the features I hope to rese
  - non-local PvP functionality, potentially through web-socket technology
  - AI implementation allowing a user to play a single player game against the app
 
+ NB - Please check the bottom of this readme for details of features added to the latest build.
+
 
 ## Tech Stack
 The app was bootstrapped with Create React App. I utilised Email.js for the email functionality on the contact form in the Contact section and made use of Material UI's TextareaAutoSize component to replace the native HTML equivalent. The Lodash cloneDeep method was also utilised as a helper function.
@@ -80,4 +82,7 @@ TREMOLO - THE SOCIAL APP FOR MUSICIANS: https://tremolo-project.netlify.app
  \
 Thanks for stopping by! 
 
+<br>
 
+## Completed Updates
+ - Added animations to various UI components (09/01/2023).
