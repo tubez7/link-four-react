@@ -9,7 +9,7 @@ export default function Developer() {
         <br />
         <br />
         This app was built with React utilising JavaScript & CSS. Please visit
-        the Portfoilio section to see other projects I have worked on, the Links
+        the Portfolio section to see other projects I have worked on, the Links
         section to see my socials, or drop me an email or send me a comment from
         the Contact page!
         <br />
